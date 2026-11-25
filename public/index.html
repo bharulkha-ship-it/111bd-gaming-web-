@@ -1,523 +1,937 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#10091d">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10091d">
+<title>111BD.VIP | বাংলা গেমিং ও বিনোদন</title>
 
-    <title>111BD | Gaming & Entertainment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="manifest" href="manifest.json">
 
-    <meta name="description" content="111BD Gaming and Entertainment Platform">
+<style>
+:root{
+  --bg:#10091d;
+  --panel:#1b102b;
+  --panel2:#241638;
+  --gold:#f7c948;
+  --gold2:#ffdf80;
+  --purple:#9b55ed;
+  --green:#21c887;
+  --muted:#aaa0b8;
+  --border:rgba(255,255,255,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Hind Siliguri',sans-serif;
+  background:linear-gradient(145deg,#10091d,#160b26 55%,#0d0816);
+  color:#fff;
+  min-height:100vh;
+  padding-bottom:85px;
+}
+button{font-family:inherit;cursor:pointer}
+.container{width:min(1180px,94%);margin:auto}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+/* Header */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(16,9,29,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  min-height:66px;display:flex;align-items:center;
+  justify-content:space-between;gap:10px;
+}
+.header-left{display:flex;align-items:center;gap:12px}
+.menu-btn{
+  background:none;border:0;color:var(--gold);font-size:21px;padding:4px;
+}
+.logo{
+  font-size:26px;font-weight:800;letter-spacing:.5px;
+  background:linear-gradient(90deg,#fff0a6,#f4bd35,#bd79ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-decoration:none;
+}
+.logo span{font-size:13px;color:#d6aaff}
+.header-actions{display:flex;align-items:center;gap:8px}
+.btn{
+  border:0;border-radius:25px;padding:8px 16px;
+  font-weight:700;font-size:14px;transition:.2s;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.btn-login{background:#30213f;color:#fff;border:1px solid #72519a}
+.btn-register{
+  color:#241300;background:linear-gradient(100deg,#ffe58a,#e9ad27);
+  box-shadow:0 4px 18px #d9a42b35;
+}
+.user-balance{
+  display:none;background:#241a30;border:1px solid #604b27;
+  color:var(--gold);border-radius:20px;padding:6px 12px;font-size:13px;font-weight:700;
+}
 
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+/* Side Drawer */
+.drawer-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:90;
+}
+.drawer-overlay.show{display:block}
+.side-drawer{
+  position:fixed;top:0;left:-270px;width:260px;height:100%;
+  background:#170d26;border-right:1px solid #493166;z-index:95;
+  padding:20px;transition:.3s ease;display:flex;flex-direction:column;gap:12px;
+}
+.side-drawer.open{left:0}
+.drawer-header{
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:6px;
+}
+.drawer-link{
+  background:var(--panel);border:1px solid var(--border);color:#fff;
+  padding:11px 14px;border-radius:12px;text-align:left;font-size:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.drawer-link i{color:var(--gold);width:18px}
 
-    <link rel="stylesheet" href="/style.css">
+/* Notice Ticker */
+.ticker-wrap{
+  background:#1d112e;border-bottom:1px solid var(--border);
+  padding:7px 0;overflow:hidden;
+}
+.ticker-inner{display:flex;align-items:center;gap:10px}
+.ticker-icon{color:var(--gold);font-size:14px}
+.ticker-text{
+  white-space:nowrap;overflow:hidden;font-size:13px;color:#e5d9f2;
+  animation:marquee 18s linear infinite;
+}
+@keyframes marquee{
+  0%{transform:translateX(100%)}
+  100%{transform:translateX(-100%)}
+}
+
+/* Main banner Slider */
+.hero{padding:18px 0 12px}
+.hero-banner{
+  min-height:200px;border-radius:20px;overflow:hidden;
+  padding:24px;position:relative;
+  background:
+    radial-gradient(circle at 80% 20%,#8b45c5 0,transparent 32%),
+    radial-gradient(circle at 100% 100%,#276c60 0,transparent 35%),
+    linear-gradient(110deg,#352052,#17102a 65%,#24123b);
+  border:1px solid #69468a;
+  box-shadow:0 12px 35px #0005;
+}
+.hero-banner:after{
+  content:"✦";position:absolute;right:8%;top:5%;
+  font-size:120px;color:#ffdf8030;transform:rotate(15deg);pointer-events:none;
+}
+.hero-content{position:relative;z-index:2;max-width:650px}
+.vip-tag{
+  display:inline-block;padding:5px 12px;border-radius:20px;
+  color:#2b1800;background:linear-gradient(90deg,#ffe58a,#e6ac32);
+  font-size:12px;font-weight:800;margin-bottom:10px;
+}
+.hero h1{font-size:clamp(23px,5vw,36px);line-height:1.25;margin-bottom:8px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#e0d4ee;font-size:14px;margin-bottom:16px}
+.hero-btn{
+  display:inline-block;border:0;border-radius:25px;padding:9px 20px;
+  background:linear-gradient(90deg,#ffe28a,#e9ac2a);
+  color:#261700;font-weight:800;font-size:14px;
+}
+.hero-dots{display:flex;gap:6px;margin-top:16px}
+.hero-dots span{
+  width:8px;height:8px;border-radius:50%;background:#ffffff55;cursor:pointer;transition:.3s;
+}
+.hero-dots span.active{width:22px;border-radius:8px;background:var(--gold)}
+
+/* Quick categories */
+.section{margin:20px auto}
+.section-heading{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;margin-bottom:12px;flex-wrap:wrap;
+}
+.section-heading h2{font-size:19px;font-weight:700}
+.section-heading h2 i{color:var(--gold);margin-right:7px}
+.search-box{
+  background:var(--panel);border:1px solid #4d356b;border-radius:20px;
+  padding:6px 13px;display:flex;align-items:center;gap:7px;
+}
+.search-box input{
+  background:none;border:0;color:#fff;font-size:13px;outline:none;width:140px;
+}
+.categories{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:10px;
+}
+.category{
+  border:1px solid var(--border);background:var(--panel);
+  border-radius:14px;padding:13px 5px;text-align:center;color:#fff;
+  transition:.2s;
+}
+.category i{display:block;font-size:22px;margin-bottom:6px;color:var(--gold)}
+.category span{font-size:13px}
+.category.active,.category:hover{
+  border-color:var(--gold);background:#382746;
+  box-shadow:0 0 15px #f7c94818;
+}
+
+/* Games */
+.game-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.game-card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:15px;overflow:hidden;min-width:0;transition:.22s;
+}
+.game-card:hover{transform:translateY(-4px);border-color:#8a62a9}
+.game-art{
+  height:140px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.game-art:before{
+  content:"";position:absolute;border-radius:50%;
+  width:140px;height:140px;background:#ffffff12;
+}
+.game-art i{font-size:50px;color:#fff;z-index:1;filter:drop-shadow(0 5px 9px #0008)}
+.art-aviator{background:linear-gradient(135deg,#5a183d,#d74c63,#401a59)}
+.art-ace{background:linear-gradient(135deg,#164c43,#22a879,#173d51)}
+.art-bounty{background:linear-gradient(135deg,#6b3518,#d18a2b,#362049)}
+.art-boxing{background:linear-gradient(135deg,#30215c,#8b54c8,#1b3158)}
+.art-royal{background:linear-gradient(135deg,#493018,#c28b36,#51305f)}
+.art-dice{background:linear-gradient(135deg,#183d67,#327cbd,#302052)}
+.art-fish{background:linear-gradient(135deg,#075c68,#19a6a0,#16395b)}
+.art-slot{background:linear-gradient(135deg,#641d4a,#b74686,#3b205e)}
+.game-label{
+  position:absolute;left:9px;top:9px;z-index:2;
+  padding:3px 8px;border-radius:12px;background:#e84b57;
+  font-size:10px;font-weight:700;
+}
+.favorite{
+  position:absolute;right:9px;top:9px;z-index:3;
+  border:0;background:#160d25a8;color:#fff;
+  width:29px;height:29px;border-radius:50%;
+}
+.favorite.active{color:#ff5d8d}
+.game-info{padding:11px}
+.game-info h3{font-size:14px;margin-bottom:8px}
+.game-bottom{display:flex;align-items:center;justify-content:space-between;gap:5px}
+.game-bottom small{color:var(--muted);font-size:11px}
+.play-btn{
+  border:0;border-radius:18px;padding:6px 13px;
+  color:#201400;background:linear-gradient(90deg,#ffe28a,#e6ad2d);
+  font-size:12px;font-weight:800;
+}
+
+/* Wallet & History */
+.wallet-box{
+  background:linear-gradient(120deg,#1b4b3e,#1c2837);
+  border:1px solid #317c61;border-radius:16px;padding:18px;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.wallet-box small{color:#c0ded2}
+.wallet-box h3{font-size:25px;color:#8ff0c5}
+.wallet-actions{display:flex;gap:8px}
+.wallet-box button{
+  background:#b8f4d7;color:#123326;border:0;border-radius:20px;
+  padding:9px 14px;font-weight:800;font-size:13px;
+}
+.wallet-box button.secondary{background:#243b4a;color:#fff;border:1px solid #48738f}
+
+/* Footer */
+footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
+
+/* Bottom nav */
+.bottom-nav{
+  position:fixed;bottom:0;left:0;width:100%;z-index:60;
+  background:rgba(20,12,31,.97);backdrop-filter:blur(15px);
+  border-top:1px solid var(--border);
+  display:flex;justify-content:space-around;padding:9px 3px calc(9px + env(safe-area-inset-bottom));
+}
+.nav-item{
+  background:none;border:0;color:#a99eb6;min-width:55px;
+  font-size:11px;display:flex;flex-direction:column;align-items:center;gap:4px;
+}
+.nav-item i{font-size:19px}
+.nav-item.active{color:var(--gold)}
+
+/* Modal */
+.modal{
+  display:none;position:fixed;inset:0;z-index:100;
+  background:#05020bd9;align-items:center;justify-content:center;padding:15px;
+}
+.modal.show{display:flex}
+.modal-box{
+  width:min(430px,100%);background:#211431;border:1px solid #654584;
+  border-radius:18px;padding:22px;position:relative;
+  box-shadow:0 15px 50px #0009;max-height:85vh;overflow-y:auto;
+}
+.modal-close{
+  position:absolute;right:15px;top:12px;background:none;
+  border:0;color:#cfc3dc;font-size:22px;
+}
+.modal-box h2{font-size:22px;margin-bottom:5px;color:var(--gold)}
+.modal-box p{font-size:13px;color:var(--muted);margin-bottom:15px}
+.form-input{
+  width:100%;padding:12px 13px;margin:7px 0;
+  background:#130d1e;border:1px solid #49345d;border-radius:10px;
+  color:#fff;font:inherit;outline:none;
+}
+.form-input:focus{border-color:var(--gold)}
+.submit-btn{
+  width:100%;margin-top:12px;padding:12px;border:0;border-radius:10px;
+  background:linear-gradient(90deg,#ffe28a,#e5a923);
+  color:#241600;font-weight:800;font-size:15px;
+}
+.switch-auth{text-align:center;margin-top:15px;font-size:13px;color:#c9bbd8}
+.switch-auth button{background:none;border:0;color:var(--gold);font-weight:700}
+#message{font-size:13px;margin-top:10px;color:#ff9c9c}
+
+.history-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.history-item{
+  background:#150c22;border:1px solid var(--border);border-radius:10px;
+  padding:10px 12px;display:flex;justify-content:space-between;align-items:center;font-size:13px;
+}
+.win{color:#4ef0a5;font-weight:700}
+.loss{color:#ff7676;font-weight:700}
+
+@media(max-width:560px){
+  .categories{grid-template-columns:repeat(3,1fr)}
+  .game-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .game-art{height:120px}
+}
+</style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="header-inner">
-
-            <a href="/" class="logo">
-                <span class="logo-number">111</span>
-                <span class="logo-text">BD</span>
-            </a>
-
-            <button class="menu-toggle" id="menuToggle" aria-label="মেনু">
-                ☰
-            </button>
-
-            <nav class="nav-menu" id="navMenu">
-                <a href="#home">হোম</a>
-                <a href="#games">গেমস</a>
-                <a href="#wallet">ওয়ালেট</a>
-                <a href="#account">আমার অ্যাকাউন্ট</a>
-            </nav>
-
-            <div class="header-actions">
-                <button class="btn btn-outline" id="loginBtn">
-                    লগইন
-                </button>
-
-                <button class="btn btn-gold" id="registerBtn">
-                    রেজিস্ট্রেশন
-                </button>
-            </div>
-
-        </div>
-    </header>
-
-
-    <!-- MAIN -->
-    <main>
-
-        <!-- HERO -->
-        <section class="hero" id="home">
-
-            <div class="hero-content">
-
-                <div class="hero-badge">
-                    ✦ 111BD GAMING WORLD ✦
-                </div>
-
-                <h1>
-                    স্বাগতম <span>111BD</span>-তে
-                </h1>
-
-                <p>
-                    গেমিং এবং বিনোদনের নতুন অভিজ্ঞতা উপভোগ করুন।
-                    আপনার অ্যাকাউন্ট তৈরি করে শুরু করুন।
-                </p>
-
-                <div class="hero-buttons">
-                    <button class="btn btn-gold btn-large" id="heroRegisterBtn">
-                        এখনই শুরু করুন
-                    </button>
-
-                    <a href="#games" class="btn btn-outline btn-large">
-                        গেমস দেখুন
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="hero-decoration">
-                <div class="hero-circle">111</div>
-            </div>
-
-        </section>
-
-
-        <!-- ACCOUNT SUMMARY -->
-        <section class="account-section" id="account">
-
-            <div class="section-heading">
-                <h2>আমার অ্যাকাউন্ট</h2>
-                <p>আপনার অ্যাকাউন্টের তথ্য</p>
-            </div>
-
-            <div class="account-card">
-
-                <div class="account-info">
-                    <div class="avatar">👤</div>
-
-                    <div>
-                        <h3 id="userName">অতিথি ব্যবহারকারী</h3>
-                        <p id="userPhone">লগইন করা হয়নি</p>
-                    </div>
-                </div>
-
-                <div class="balance-area">
-                    <span>বর্তমান ব্যালেন্স</span>
-                    <h2>
-                        ৳ <span id="walletBalance">0.00</span>
-                    </h2>
-                    <small>ভার্চুয়াল ক্রেডিট</small>
-                </div>
-
-                <div class="account-buttons">
-                    <button class="btn btn-gold" id="depositBtn">
-                        + ব্যালেন্স যোগ
-                    </button>
-
-                    <button class="btn btn-outline" id="withdrawBtn">
-                        ব্যালেন্স উত্তোলন
-                    </button>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- GAMES -->
-        <section class="games-section" id="games">
-
-            <div class="section-heading">
-                <h2>জনপ্রিয় গেমস</h2>
-                <p>আপনার পছন্দের গেম বেছে নিন</p>
-            </div>
-
-            <div class="games-grid">
-
-                <div class="game-card">
-                    <div class="game-icon">🎰</div>
-                    <h3>স্লট গেম</h3>
-                    <p>মজার স্লট গেমিং অভিজ্ঞতা</p>
-                    <button class="btn btn-gold play-game" data-game="slots">
-                        খেলুন
-                    </button>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-icon">🎡</div>
-                    <h3>লাকি হুইল</h3>
-                    <p>চাকা ঘুরিয়ে ভার্চুয়াল পয়েন্ট জিতুন</p>
-                    <button class="btn btn-gold play-game" data-game="wheel">
-                        খেলুন
-                    </button>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-icon">🃏</div>
-                    <h3>কার্ড গেম</h3>
-                    <p>কার্ড গেমের মজার অভিজ্ঞতা</p>
-                    <button class="btn btn-gold play-game" data-game="cards">
-                        খেলুন
-                    </button>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-icon">🎯</div>
-                    <h3>লাকি নাম্বার</h3>
-                    <p>নাম্বার ভিত্তিক বিনোদনমূলক গেম</p>
-                    <button class="btn btn-gold play-game" data-game="number">
-                        খেলুন
-                    </button>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- WALLET -->
-        <section class="wallet-section" id="wallet">
-
-            <div class="section-heading">
-                <h2>ওয়ালেট</h2>
-                <p>আপনার ব্যালেন্স পরিচালনা করুন</p>
-            </div>
-
-            <div class="wallet-grid">
-
-                <div class="wallet-card">
-                    <div class="wallet-icon">💰</div>
-                    <h3>ব্যালেন্স যোগ</h3>
-                    <p>ওয়ালেটে ভার্চুয়াল ক্রেডিট যোগ করার অনুরোধ</p>
-                    <button class="btn btn-gold" id="walletDepositBtn">
-                        যোগ করুন
-                    </button>
-                </div>
-
-                <div class="wallet-card">
-                    <div class="wallet-icon">🏦</div>
-                    <h3>উত্তোলন</h3>
-                    <p>ভার্চুয়াল ক্রেডিট উত্তোলনের অনুরোধ</p>
-                    <button class="btn btn-outline" id="walletWithdrawBtn">
-                        উত্তোলন করুন
-                    </button>
-                </div>
-
-            </div>
-
-            <div class="payment-methods">
-                <h3>পেমেন্ট পদ্ধতি</h3>
-
-                <div class="payment-list">
-                    <div class="payment-item bkash">
-                        <strong>bKash</strong>
-                    </div>
-
-                    <div class="payment-item nagad">
-                        <strong>Nagad</strong>
-                    </div>
-                </div>
-
-                <p class="payment-note">
-                    bKash ও Nagad-এর নাম এখানে প্রদর্শিত হচ্ছে।
-                    প্রকৃত টাকা লেনদেন চালু করতে অনুমোদিত পেমেন্ট
-                    গেটওয়ে ও সার্ভার-সাইড ইন্টিগ্রেশন প্রয়োজন।
-                </p>
-            </div>
-
-        </section>
-
-
-        <!-- TRANSACTION HISTORY -->
-        <section class="history-section">
-
-            <div class="section-heading">
-                <h2>লেনদেনের ইতিহাস</h2>
-                <p>আপনার সাম্প্রতিক কার্যক্রম</p>
-            </div>
-
-            <div class="history-card" id="transactionHistory">
-                <div class="empty-history">
-                    <span>📋</span>
-                    <p>এখনো কোনো লেনদেন নেই</p>
-                </div>
-            </div>
-
-        </section>
-
-
-        <!-- FEATURES -->
-        <section class="features-section">
-
-            <div class="section-heading">
-                <h2>আমাদের সুবিধা</h2>
-            </div>
-
-            <div class="features-grid">
-
-                <div class="feature-card">
-                    <span>🔐</span>
-                    <h3>নিরাপত্তা</h3>
-                    <p>অ্যাকাউন্ট সুরক্ষায় প্রয়োজনীয় ব্যবস্থা</p>
-                </div>
-
-                <div class="feature-card">
-                    <span>📱</span>
-                    <h3>মোবাইল ফ্রেন্ডলি</h3>
-                    <p>মোবাইল ও কম্পিউটারে ব্যবহার উপযোগী</p>
-                </div>
-
-                <div class="feature-card">
-                    <span>🎮</span>
-                    <h3>গেমিং</h3>
-                    <p>বিভিন্ন বিনোদনমূলক গেম</p>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="footer">
-
-        <a href="/" class="logo footer-logo">
-            <span class="logo-number">111</span>
-            <span class="logo-text">BD</span>
-        </a>
-
-        <p>© 2026 111BD. All rights reserved.</p>
-
-        <div class="footer-links">
-            <a href="#home">হোম</a>
-            <a href="#games">গেমস</a>
-            <a href="#wallet">ওয়ালেট</a>
-        </div>
-
-        <p class="footer-disclaimer">
-            এই ওয়েবসাইটের ব্যালেন্স ও গেম ফিচার ভার্চুয়াল ক্রেডিটের
-            জন্য। এখানে প্রকৃত অর্থের জুয়া বা টাকা লেনদেন চালু নেই।
-        </p>
-
-    </footer>
-
-
-    <!-- LOGIN MODAL -->
-    <div class="modal" id="loginModal">
-
-        <div class="modal-content">
-
-            <button class="modal-close" data-close="loginModal">×</button>
-
-            <h2>লগইন করুন</h2>
-            <p>আপনার অ্যাকাউন্টে প্রবেশ করুন</p>
-
-            <form id="loginForm">
-
-                <label for="loginPhone">মোবাইল নম্বর</label>
-                <input
-                    type="tel"
-                    id="loginPhone"
-                    placeholder="01XXXXXXXXX"
-                    required
-                >
-
-                <label for="loginPassword">পাসওয়ার্ড</label>
-                <input
-                    type="password"
-                    id="loginPassword"
-                    placeholder="আপনার পাসওয়ার্ড"
-                    required
-                >
-
-                <button type="submit" class="btn btn-gold btn-full">
-                    লগইন
-                </button>
-
-            </form>
-
-            <p class="modal-switch">
-                অ্যাকাউন্ট নেই?
-                <button type="button" id="switchToRegister">
-                    রেজিস্ট্রেশন করুন
-                </button>
-            </p>
-
-        </div>
-
+<!-- Side Drawer -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer()"></div>
+<aside class="side-drawer" id="sideDrawer">
+  <div class="drawer-header">
+    <span class="logo">111BD<span>.VIP</span></span>
+    <button class="modal-close" style="position:static" onclick="toggleDrawer()">&times;</button>
+  </div>
+  <button class="drawer-link" onclick="toggleDrawer();goTo('top')"><i class="fa-solid fa-house"></i> হোম</button>
+  <button class="drawer-link" onclick="toggleDrawer();goTo('games')"><i class="fa-solid fa-gamepad"></i> গেমস</button>
+  <button class="drawer-link" onclick="toggleDrawer();goTo('wallet')"><i class="fa-solid fa-wallet"></i> আমার ওয়ালেট</button>
+  <button class="drawer-link" onclick="toggleDrawer();openHistory()"><i class="fa-solid fa-clock-rotate-left"></i> লেনদেনের ইতিহাস</button>
+  <button class="drawer-link" onclick="toggleDrawer();openProfile()"><i class="fa-solid fa-user"></i> প্রোফাইল</button>
+</aside>
+
+<header>
+  <div class="container header-inner">
+    <div class="header-left">
+      <button class="menu-btn" onclick="toggleDrawer()" aria-label="মেনু"><i class="fa-solid fa-bars"></i></button>
+      <a href="#" class="logo">111BD<span>.VIP</span></a>
     </div>
 
+    <div class="header-actions">
+      <div class="user-balance" id="headerBalance">বর্তমান ব্যালেন্স: ৳ <span id="balanceTop">1000</span></div>
+      <button class="btn btn-login" id="loginBtn" onclick="openAuth('login')">লগইন</button>
+      <button class="btn btn-register" id="registerBtn" onclick="openAuth('register')">নিবন্ধন</button>
+      <button class="btn btn-login" id="logoutBtn" onclick="logout()" style="display:none">লগআউট</button>
+    </div>
+  </div>
+</header>
 
-    <!-- REGISTER MODAL -->
-    <div class="modal" id="registerModal">
+<!-- Notice Ticker -->
+<div class="ticker-wrap">
+  <div class="container ticker-inner">
+    <i class="fa-solid fa-bullhorn ticker-icon"></i>
+    <div style="overflow:hidden;width:100%">
+      <div class="ticker-text">
+        স্বাগতম 111BD.VIP-এ! নতুন সদস্য নিবন্ধনে পাচ্ছেন ১,০০০ ফ্রি ডেমো ক্রেডিট। ১১১ দিয়ে খেলুন এবং দারুণ বিনোদন উপভোগ করুন।
+      </div>
+    </div>
+  </div>
+</div>
 
-        <div class="modal-content">
+<main class="container">
 
-            <button class="modal-close" data-close="registerModal">×</button>
-
-            <h2>নতুন অ্যাকাউন্ট</h2>
-            <p>আপনার তথ্য দিয়ে রেজিস্ট্রেশন করুন</p>
-
-            <form id="registerForm">
-
-                <label for="registerName">আপনার নাম</label>
-                <input
-                    type="text"
-                    id="registerName"
-                    placeholder="আপনার নাম লিখুন"
-                    required
-                >
-
-                <label for="registerPhone">মোবাইল নম্বর</label>
-                <input
-                    type="tel"
-                    id="registerPhone"
-                    placeholder="01XXXXXXXXX"
-                    pattern="01[3-9][0-9]{8}"
-                    required
-                >
-
-                <label for="registerPassword">পাসওয়ার্ড</label>
-                <input
-                    type="password"
-                    id="registerPassword"
-                    placeholder="কমপক্ষে ৬ অক্ষর"
-                    minlength="6"
-                    required
-                >
-
-                <label for="confirmPassword">পাসওয়ার্ড নিশ্চিত করুন</label>
-                <input
-                    type="password"
-                    id="confirmPassword"
-                    placeholder="আবার পাসওয়ার্ড লিখুন"
-                    minlength="6"
-                    required
-                >
-
-                <button type="submit" class="btn btn-gold btn-full">
-                    অ্যাকাউন্ট তৈরি করুন
-                </button>
-
-            </form>
-
-            <p class="modal-switch">
-                আগে থেকেই অ্যাকাউন্ট আছে?
-                <button type="button" id="switchToLogin">
-                    লগইন করুন
-                </button>
-            </p>
-
+  <!-- VIP Auto Slider Banner -->
+  <section class="hero">
+    <div class="hero-banner">
+      <div class="hero-content">
+        <div class="vip-tag" id="bannerTag"><i class="fa-solid fa-crown"></i> 111BD বিশেষ আয়োজন</div>
+        <h1 id="bannerTitle">স্বাগতম <span>111BD.VIP</span>-এ</h1>
+        <p id="bannerDesc">গেমিং ও বিনোদনের নতুন অভিজ্ঞতা উপভোগ করুন। ১১১ দিয়ে খেলুন এবং রোমাঞ্চকর অভিজ্ঞতা নিন।</p>
+        <button class="hero-btn" id="bannerBtn" onclick="heroAction()">এখনই যোগ দিন <i class="fa-solid fa-arrow-right"></i></button>
+        <div class="hero-dots" id="heroDots">
+          <span class="active" onclick="setSlide(0)"></span>
+          <span onclick="setSlide(1)"></span>
+          <span onclick="setSlide(2)"></span>
         </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Categories -->
+  <section class="section">
+    <div class="section-heading">
+      <h2><i class="fa-solid fa-shapes"></i> গেমস ক্যাটাগরি</h2>
     </div>
 
+    <div class="categories">
+      <button class="category active" onclick="filterGames('all',this)">
+        <i class="fa-solid fa-fire"></i><span>গরম</span>
+      </button>
+      <button class="category" onclick="filterGames('slots',this)">
+        <i class="fa-solid fa-gem"></i><span>স্লট</span>
+      </button>
+      <button class="category" onclick="filterGames('live',this)">
+        <i class="fa-solid fa-video"></i><span>লাইভ</span>
+      </button>
+      <button class="category" onclick="filterGames('poker',this)">
+        <i class="fa-solid fa-club"></i><span>পোকার</span>
+      </button>
+      <button class="category" onclick="filterGames('sports',this)">
+        <i class="fa-solid fa-futbol"></i><span>স্পোর্টস</span>
+      </button>
+      <button class="category" onclick="filterGames('fishing',this)">
+        <i class="fa-solid fa-fish"></i><span>ফিশিং</span>
+      </button>
+    </div>
+  </section>
 
-    <!-- DEPOSIT MODAL -->
-    <div class="modal" id="depositModal">
-
-        <div class="modal-content">
-
-            <button class="modal-close" data-close="depositModal">×</button>
-
-            <h2>ব্যালেন্স যোগ করুন</h2>
-            <p>ভার্চুয়াল ক্রেডিট যোগ করার অনুরোধ</p>
-
-            <form id="depositForm">
-
-                <label for="depositAmount">পরিমাণ</label>
-                <input
-                    type="number"
-                    id="depositAmount"
-                    min="1"
-                    placeholder="পরিমাণ লিখুন"
-                    required
-                >
-
-                <label for="depositMethod">পদ্ধতি</label>
-                <select id="depositMethod" required>
-                    <option value="">পদ্ধতি নির্বাচন করুন</option>
-                    <option value="bKash">bKash</option>
-                    <option value="Nagad">Nagad</option>
-                </select>
-
-                <button type="submit" class="btn btn-gold btn-full">
-                    অনুরোধ পাঠান
-                </button>
-
-            </form>
-
-        </div>
-
+  <!-- Popular games + Search -->
+  <section class="section" id="games">
+    <div class="section-heading">
+      <h2><i class="fa-solid fa-fire"></i> জনপ্রিয় গেম</h2>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass" style="color:var(--muted);font-size:12px"></i>
+        <input type="text" id="gameSearch" placeholder="গেম খুঁজুন..." oninput="searchGames()">
+      </div>
     </div>
 
+    <div class="game-grid" id="gameGrid">
 
-    <!-- WITHDRAW MODAL -->
-    <div class="modal" id="withdrawModal">
-
-        <div class="modal-content">
-
-            <button class="modal-close" data-close="withdrawModal">×</button>
-
-            <h2>ব্যালেন্স উত্তোলন</h2>
-            <p>ভার্চুয়াল ক্রেডিট উত্তোলনের অনুরোধ</p>
-
-            <form id="withdrawForm">
-
-                <label for="withdrawAmount">পরিমাণ</label>
-                <input
-                    type="number"
-                    id="withdrawAmount"
-                    min="1"
-                    placeholder="পরিমাণ লিখুন"
-                    required
-                >
-
-                <label for="withdrawMethod">পদ্ধতি</label>
-                <select id="withdrawMethod" required>
-                    <option value="">পদ্ধতি নির্বাচন করুন</option>
-                    <option value="bKash">bKash</option>
-                    <option value="Nagad">Nagad</option>
-                </select>
-
-                <label for="withdrawPhone">মোবাইল নম্বর</label>
-                <input
-                    type="tel"
-                    id="withdrawPhone"
-                    placeholder="01XXXXXXXXX"
-                    required
-                >
-
-                <button type="submit" class="btn btn-gold btn-full">
-                    অনুরোধ পাঠান
-                </button>
-
-            </form>
-
+      <article class="game-card" data-category="slots" data-name="এভিয়েটর aviator">
+        <div class="game-art art-aviator">
+          <span class="game-label">জনপ্রিয়</span>
+          <button class="favorite" onclick="favorite(this)"><i class="fa-regular fa-heart"></i></button>
+          <i class="fa-solid fa-plane"></i>
         </div>
+        <div class="game-info">
+          <h3>এভিয়েটর</h3>
+          <div class="game-bottom"><small>১১১ দিয়ে খেলুন</small><button class="play-btn" onclick="playDemo('এভিয়েটর')">খেলুন</button></div>
+        </div>
+      </article>
+
+      <article class="game-card" data-category="slots" data-name="সুপার এস super ace">
+        <div class="game-art art-ace">
+          <span class="game-label">নতুন</span>
+          <button class="favorite" onclick="favorite(this)"><i class="fa-regular fa-heart"></i></button>
+          <i class="fa-solid fa-spade"></i>
+        </div>
+        <div class="game-info">
+          <h3>সুপার এস</h3>
+          <div class="game-bottom"><small>১১১ দিয়ে খেলুন</small><button class="play-btn" onclick="playDemo('সুপার এস')">খেলুন</button></div>
+        </div>
+      </article>
+
+      <article class="game-card" data-category="slots" data-name="ওয়াইল্ড বাউন্টি wild bounty">
+        <div class="game-art art-bounty">
+          <button class="favorite" onclick="favorite(this)"><i class="fa-regular fa-heart"></i></button>
+          <i class="fa-solid fa-coins"></i>
+        </div>
+        <div class="game-info">
+          <h3>ওয়াইল্ড বাউন্টি</h3>
+          <div class="game-bottom"><small>১১১ দিয়ে খেলুন</small><button class="play-btn" onclick="playDemo('ওয়াইল্ড বাউন্টি')">খেলুন</button></div>
+        </div>
+      </article>
+
+      <article class="game-card" data-category="sports" data-name="বক্সিং কিং boxing king">
+        <div class="game-art art-boxing">
+          <span class="game-label">হিট</span>
+          <button class="favorite" onclick="favorite(this)"><i class="fa-regular fa-heart"></i></button>
+          <i class="fa-solid fa-hand-fist"></i>
+        </div>
+        <div class="game-info">
+          <h3>বক্সিং কিং</h3>
+          <div class="game-bottom"><small>১১১ দিয়ে খেলুন</small><button class="play-btn" onclick="playDemo('বক্সিং কিং')">খেলুন</button></div>
+        </div>
+      </article>
+
+      <article class="game-card" data-category="poker" data-name="রয়্যাল কার্ড royal card">
+        <div class="game-art art-royal">
+          <button class="favorite" onclick="favorite(this)"><i class="fa-regular fa-heart"></i></button>
+          <i class="fa-solid fa-crown"></i>
+        </div>
+        <div class="game-info">
+          <h3>রয়্যাল কার্ড</h3>
+          <div class="game-bottom"><small>১১১ দিয়ে খেলুন</small><button class="play-btn" onclick="playDemo('রয়্যাল কার্ড')">খেলুন</button></div>
+        </div>
+      </article>
+
+      <article class="game-card" data-category="slots" data-name="লাকি ডাইস lucky dice">
+        <div class="game-art art-dice">
+          <button class="favorite" onclick="favorite(this)"><i class="fa-regular fa-heart"></i></button>
+          <i class="fa-solid fa-dice"></i>
+        </div>
+        <div class="game-info">
+          <h3>লাকি ডাইস</h3>
+          <div class="game-bottom"><small>১১১ দিয়ে খেলুন</small><button class="play-btn" onclick="playDemo('লাকি ডাইস')">খেলুন</button></div>
+        </div>
+      </article>
+
+      <article class="game-card" data-category="fishing" data-name="ফিশিং ওয়ার্ল্ড fishing">
+        <div class="game-art art-fish">
+          <button class="favorite" onclick="favorite(this)"><i class="fa-regular fa-heart"></i></button>
+          <i class="fa-solid fa-fish"></i>
+        </div>
+        <div class="game-info">
+          <h3>ফিশিং ওয়ার্ল্ড</h3>
+          <div class="game-bottom"><small>১১১ দিয়ে খেলুন</small><button class="play-btn" onclick="playDemo('ফিশিং ওয়ার্ল্ড')">খেলুন</button></div>
+        </div>
+      </article>
+
+      <article class="game-card" data-category="live" data-name="গোল্ডেন স্লট golden slot">
+        <div class="game-art art-slot">
+          <button class="favorite" onclick="favorite(this)"><i class="fa-regular fa-heart"></i></button>
+          <i class="fa-solid fa-dice-five"></i>
+        </div>
+        <div class="game-info">
+          <h3>গোল্ডেন স্লট</h3>
+          <div class="game-bottom"><small>১১১ দিয়ে খেলুন</small><button class="play-btn" onclick="playDemo('গোল্ডেন স্লট')">খেলুন</button></div>
+        </div>
+      </article>
 
     </div>
+  </section>
 
+  <!-- Wallet -->
+  <section class="section" id="wallet">
+    <div class="section-heading">
+      <h2><i class="fa-solid fa-wallet"></i> আমার ওয়ালেট</h2>
+    </div>
+    <div class="wallet-box">
+      <div>
+        <small>বর্তমান ব্যালেন্স</small>
+        <h3>৳ <span id="walletBalance">1000</span></h3>
+      </div>
+      <div class="wallet-actions">
+        <button onclick="resetDemoBalance()">রিফিল (+১০০০)</button>
+        <button class="secondary" onclick="openHistory()">লেনদেনের ইতিহাস</button>
+      </div>
+    </div>
+  </section>
 
-    <!-- NOTIFICATION -->
-    <div class="toast" id="toast"></div>
+  <footer>
+    © 2026 111BD.VIP — বাংলা গেমিং ও বিনোদন প্ল্যাটফর্ম।<br>
+    এখানে প্রদর্শিত ক্রেডিট শুধুমাত্র ডেমো ব্যবহারের জন্য।
+  </footer>
+</main>
 
+<!-- Bottom Navigation -->
+<nav class="bottom-nav">
+  <button class="nav-item active" onclick="goTo('top',this)">
+    <i class="fa-solid fa-house"></i><span>হোম</span>
+  </button>
+  <button class="nav-item" onclick="shareSite()">
+    <i class="fa-solid fa-share-nodes"></i><span>শেয়ার</span>
+  </button>
+  <button class="nav-item" onclick="goTo('wallet',this)">
+    <i class="fa-solid fa-wallet"></i><span>আমার ওয়ালেট</span>
+  </button>
+  <button class="nav-item" onclick="goTo('games',this)">
+    <i class="fa-solid fa-gamepad"></i><span>গেমস</span>
+  </button>
+  <button class="nav-item" onclick="openProfile()">
+    <i class="fa-solid fa-user"></i><span>প্রোফাইল</span>
+  </button>
+</nav>
 
-    <!-- JAVASCRIPT -->
-    <script src="/app.js"></script>
+<!-- Login / Register Modal -->
+<div class="modal" id="authModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
+    <h2 id="modalTitle">লগইন</h2>
+    <p id="modalDescription">আপনার অ্যাকাউন্টে প্রবেশ করুন।</p>
 
+    <form id="authForm">
+      <input class="form-input" id="username" type="text" placeholder="আপনার নাম" style="display:none">
+      <input class="form-input" id="email" type="email" placeholder="ইমেইল ঠিকানা" required>
+      <input class="form-input" id="password" type="password" placeholder="পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)" required minlength="6">
+      <button class="submit-btn" id="submitAuth" type="submit">লগইন করুন</button>
+    </form>
+
+    <div id="message"></div>
+    <div class="switch-auth">
+      <span id="switchText">অ্যাকাউন্ট নেই?</span>
+      <button id="switchButton" type="button" onclick="switchAuth()">নিবন্ধন করুন</button>
+    </div>
+  </div>
+</div>
+
+<!-- Profile Modal -->
+<div class="modal" id="profileModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('profileModal')">&times;</button>
+    <h2><i class="fa-solid fa-user-circle"></i> প্রোফাইল</h2>
+    <p>আপনার অ্যাকাউন্টের বিস্তারিত তথ্য</p>
+    <div class="history-list">
+      <div class="history-item"><span>ব্যবহারকারীর নাম:</span><strong id="profName">-</strong></div>
+      <div class="history-item"><span>ইমেইল:</span><strong id="profEmail">-</strong></div>
+      <div class="history-item"><span>বর্তমান ব্যালেন্স:</span><strong style="color:var(--gold)">৳ <span id="profBalance">1000</span></strong></div>
+    </div>
+    <button class="submit-btn" onclick="closeModal('profileModal');openHistory()">লেনদেনের ইতিহাস দেখুন</button>
+  </div>
+</div>
+
+<!-- Transaction History Modal -->
+<div class="modal" id="historyModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('historyModal')">&times;</button>
+    <h2><i class="fa-solid fa-clock-rotate-left"></i> লেনদেনের ইতিহাস</h2>
+    <p>আপনার সাম্প্রতিক গেম ও ব্যালেন্সের হিসাব</p>
+    <div class="history-list" id="historyContainer"></div>
+  </div>
+</div>
+
+<!-- Aviator Live Game Modal -->
+<div class="modal" id="aviatorModal">
+  <div class="modal-box" style="max-width: 480px; text-align: center;">
+    <button class="modal-close" onclick="closeAviator()">&times;</button>
+    <h2 id="gameModalTitle"><i class="fa-solid fa-plane"></i> এভিয়েটর লাইভ</h2>
+    <p>প্লেন ক্র্যাশ করার আগেই ক্যাশ-আউট করুন!</p>
+
+    <!-- গেম স্ক্রিন -->
+    <div id="skyBox" style="
+      height: 190px; background: radial-gradient(circle at bottom left, #2b1447, #0d0717);
+      border: 1px solid #593a7a; border-radius: 15px; position: relative;
+      overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+      
+      <div id="multiplierText" style="font-size: 42px; font-weight: 800; color: var(--gold); z-index: 2;">
+        1.00x
+      </div>
+      
+      <i id="planeIcon" class="fa-solid fa-plane-up" style="
+        position: absolute; left: 20px; bottom: 20px; font-size: 32px;
+        color: #ff4d6d; transition: transform 0.1s linear;"></i>
+    </div>
+
+    <!-- বেট কন্ট্রোল -->
+    <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+      <input type="number" id="betAmount" class="form-input" value="50" min="10" max="500" style="margin: 0; text-align: center; font-weight: bold;">
+      <button id="actionBtn" class="submit-btn" style="margin: 0;" onclick="handleAviatorAction()">খেলা শুরু করুন</button>
+    </div>
+    <div id="aviatorStatus" style="font-size: 13px; color: var(--gold2); min-height: 20px;">পরিমাণ লিখে খেলা শুরু করুন (১০ - ৫০০ ৳)</div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+
+// Banner Slider Data
+const slides = [
+  {
+    tag: '<i class="fa-solid fa-crown"></i> 111BD বিশেষ আয়োজন',
+    title: 'স্বাগতম <span>111BD.VIP</span>-এ',
+    desc: 'গেমিং ও বিনোদনের নতুন অভিজ্ঞতা উপভোগ করুন। নতুন সদস্যদের জন্য রয়েছে ১,০০০ ডেমো ক্রেডিট।'
+  },
+  {
+    tag: '<i class="fa-solid fa-gem"></i> ভিআইপি সদস্য সুবিধা',
+    title: 'প্রতিদিন <span>জনপ্রিয় গেম</span> খেলুন',
+    desc: 'এভিয়েটর, সুপার এস এবং বক্সিং কিং-এর মতো রোমাঞ্চকর গেম উপভোগ করুন।'
+  },
+  {
+    tag: '<i class="fa-solid fa-gift"></i> ফ্রি ডেমো ওয়ালেট',
+    title: 'সহজ <span>ওয়ালেট ও ইতিহাস</span>',
+    desc: 'যেকোনো সময় আপনার ব্যালেন্স রিফিল করুন এবং লেনদেনের ইতিহাস দেখুন।'
+  }
+];
+let currentSlide = 0;
+
+function setSlide(index){
+  currentSlide = index;
+  $('bannerTag').innerHTML = slides[index].tag;
+  $('bannerTitle').innerHTML = slides[index].title;
+  $('bannerDesc').textContent = slides[index].desc;
+  document.querySelectorAll('#heroDots span').forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+setInterval(() => setSlide((currentSlide + 1) % slides.length), 4500);
+
+// Drawer
+function toggleDrawer(){
+  $('sideDrawer').classList.toggle('open');
+  $('drawerOverlay').classList.toggle('show');
+}
+
+// Auth & LocalStorage State
+let authMode = 'login';
+let currentUser = JSON.parse(localStorage.getItem('111bd_user')) || null;
+let historyData = JSON.parse(localStorage.getItem('111bd_history')) || [];
+
+function saveState(){
+  if(currentUser){
+    localStorage.setItem('111bd_user', JSON.stringify(currentUser));
+  } else {
+    localStorage.removeItem('111bd_user');
+  }
+  localStorage.setItem('111bd_history', JSON.stringify(historyData));
+}
+
+function openAuth(mode){
+  authMode = mode;
+  updateAuthModal();
+  $('authModal').classList.add('show');
+}
+function closeModal(id){
+  $(id).classList.remove('show');
+  $('message').textContent = '';
+}
+function switchAuth(){
+  authMode = authMode === 'login' ? 'register' : 'login';
+  updateAuthModal();
+}
+function updateAuthModal(){
+  const reg = authMode === 'register';
+  $('modalTitle').textContent = reg ? 'নিবন্ধন' : 'লগইন';
+  $('modalDescription').textContent = reg ? 'নতুন অ্যাকাউন্ট তৈরি করুন।' : 'আপনার অ্যাকাউন্টে প্রবেশ করুন।';
+  $('username').style.display = reg ? 'block' : 'none';
+  $('username').required = reg;
+  $('submitAuth').textContent = reg ? 'নিবন্ধন করুন' : 'লগইন করুন';
+  $('switchText').textContent = reg ? 'আগে থেকেই অ্যাকাউন্ট আছে?' : 'অ্যাকাউন্ট নেই?';
+  $('switchButton').textContent = reg ? 'লগইন করুন' : 'নিবন্ধন করুন';
+}
+
+$('authForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const email = $('email').value.trim();
+  const name = $('username').value.trim() || email.split('@')[0];
+
+  currentUser = {
+    username: name,
+    email: email,
+    balance: currentUser ? currentUser.balance : 1000
+  };
+  if(historyData.length === 0){
+    historyData.unshift({title: 'স্বাগতম বোনাস', amount: '+1000', type: 'win', time: new Date().toLocaleTimeString('bn-BD')});
+  }
+  saveState();
+  updateUserUI();
+  closeModal('authModal');
+});
+
+function updateUserUI(){
+  const loggedIn = Boolean(currentUser);
+  $('headerBalance').style.display = loggedIn ? 'block' : 'none';
+  $('loginBtn').style.display = loggedIn ? 'none' : 'inline-block';
+  $('registerBtn').style.display = loggedIn ? 'none' : 'inline-block';
+  $('logoutBtn').style.display = loggedIn ? 'inline-block' : 'none';
+
+  const bal = loggedIn ? currentUser.balance : 1000;
+  $('balanceTop').textContent = bal;
+  $('walletBalance').textContent = bal;
+  $('bannerBtn').innerHTML = loggedIn
+    ? 'গেম খেলুন <i class="fa-solid fa-gamepad"></i>'
+    : 'এখনই যোগ দিন <i class="fa-solid fa-arrow-right"></i>';
+}
+
+function heroAction(){
+  if(currentUser) goTo('games');
+  else openAuth('register');
+}
+
+function logout(){
+  currentUser = null;
+  saveState();
+  updateUserUI();
+}
+
+function openProfile(){
+  if(!currentUser){ openAuth('login'); return; }
+  $('profName').textContent = currentUser.username;
+  $('profEmail').textContent = currentUser.email;
+  $('profBalance').textContent = currentUser.balance;
+  $('profileModal').classList.add('show');
+}
+
+function openHistory(){
+  if(!currentUser){ openAuth('login'); return; }
+  const container = $('historyContainer');
+  if(historyData.length === 0){
+    container.innerHTML = '<p style="text-align:center">কোনো লেনদেনের ইতিহাস নেই।</p>';
+  } else {
+    container.innerHTML = historyData.map(item => `
+      <div class="history-item">
+        <div><strong>${item.title}</strong><br><small style="color:var(--muted)">${item.time}</small></div>
+        <span class="${item.type}">${item.amount} ৳</span>
+      </div>
+    `).join('');
+  }
+  $('historyModal').classList.add('show');
+}
+
+function resetDemoBalance(){
+  if(!currentUser){ openAuth('login'); return; }
+  currentUser.balance += 1000;
+  historyData.unshift({title: 'ডেমো রিফিল', amount: '+1000', type: 'win', time: new Date().toLocaleTimeString('bn-BD')});
+  saveState();
+  updateUserUI();
+  alert('আপনার ওয়ালেটে ১,০০০ ডেমো ক্রেডিট যোগ হয়েছে!');
+}
+
+// Aviator Game Logic
+let gameInterval = null;
+let isFlying = false;
+let multiplier = 1.00;
+let crashPoint = 1.00;
+let currentBet = 0;
+let activeGameName = 'এভিয়েটর';
+
+function playDemo(gameName) {
+  if (!currentUser) {
+    alert('গেম খেলতে আগে লগইন করুন।');
+    openAuth('login');
+    return;
+  }
+  activeGameName = gameName;
+  $('gameModalTitle').innerHTML = `<i class="fa-solid fa-plane"></i> ${gameName}`;
+  resetAviatorUI();
+  $('aviatorModal').classList.add('show');
+}
+
+function closeAviator() {
+  clearInterval(gameInterval);
+  isFlying = false;
+  closeModal('aviatorModal');
+}
+
+function resetAviatorUI() {
+  clearInterval(gameInterval);
+  isFlying = false;
+  multiplier = 1.00;
+  $('multiplierText').textContent = '1.00x';
+  $('multiplierText').style.color = 'var(--gold)';
+  $('planeIcon').style.transform = 'translate(0px, 0px) rotate(0deg)';
+  $('actionBtn').textContent = 'খেলা শুরু করুন';
+  $('actionBtn').style.background = 'linear-gradient(90deg,#ffe28a,#e5a923)';
+  $('aviatorStatus').textContent = 'পরিমাণ লিখে খেলা শুরু করুন (১০ - ৫০০ ৳)';
+}
+
+function handleAviatorAction() {
+  if (!isFlying) {
+    const bet = Number($('betAmount').value);
+    if (!Number.isInteger(bet) || bet < 10 || bet > 500) {
+      $('aviatorStatus').textContent = '১০ থেকে ৫০০ এর মধ্যে পরিমাণ দিন।';
+      return;
+    }
+    if (currentUser.balance < bet) {
+      $('aviatorStatus').textContent = 'পর্যাপ্ত ব্যালেন্স নেই! ওয়ালেট রিফিল করুন।';
+      return;
+    }
+
+    currentBet = bet;
+    currentUser.balance -= bet;
+    saveState();
+    updateUserUI();
+
+    isFlying = true;
+    multiplier = 1.00;
+    crashPoint = Number((1.10 + Math.random() * 4.5).toFixed(2));
+    
+    $('actionBtn').textContent = `ক্যাশ-আউট (${(currentBet * multiplier).toFixed(0)} ৳)`;
+    $('actionBtn').style.background = '#21c887';
+    $('aviatorStatus').textContent = 'প্লেন উড়ছে! ক্র্যাশ করার আগেই ক্যাশ-আউট করুন...';
+
+    let moveX = 0, moveY = 0;
+    gameInterval = setInterval(() => {
+      multiplier = Number((multiplier + 0.03).toFixed(2));
+      $('multiplierText').textContent = multiplier.toFixed(2) + 'x';
+      $('actionBtn').textContent = `ক্যাশ-আউট (${(currentBet * multiplier).toFixed(0)} ৳)`;
+
+      moveX = Math.min(moveX + 3, 260);
+      moveY = Math.min(moveY + 1.5, 110);
+      $('planeIcon').style.transform = `translate(${moveX}px, -${moveY}px) rotate(15deg)`;
+
+      if (multiplier >= crashPoint) {
+        clearInterval(gameInterval);
+        isFlying = false;
+        $('multiplierText').style.color = '#ff5c5c';
+        $('multiplierText').textContent = `ক্র্যাশ @ ${crashPoint}x`;
+        $('actionBtn').textContent = 'আবার খেলুন';
+        $('actionBtn').style.background = 'linear-gradient(90deg,#ffe28a,#e5a923)';
+        $('aviatorStatus').textContent = `দুঃখিত! প্লেন ক্র্যাশ করেছে (-${currentBet} ৳)`;
+
+        historyData.unshift({
+          title: `${activeGameName} (ক্র্যাশ)`,
+          amount: '-' + currentBet,
+          type: 'loss',
+          time: new Date().toLocaleTimeString('bn-BD')
+        });
+        saveState();
+      }
+    }, 80);
+
+  } else {
+    clearInterval(gameInterval);
+    isFlying = false;
+    const winTotal = Math.round(currentBet * multiplier);
+    const profit = winTotal - currentBet;
+    currentUser.balance += winTotal;
+
+    historyData.unshift({
+      title: `${activeGameName} (${multiplier}x জয়)`,
+      amount: '+' + profit,
+      type: 'win',
+      time: new Date().toLocaleTimeString('bn-BD')
+    });
+    saveState();
+    updateUserUI();
+
+    $('multiplierText').style.color = '#4ef0a5';
+    $('actionBtn').textContent = 'আবার খেলুন';
+    $('actionBtn').style.background = 'linear-gradient(90deg,#ffe28a,#e5a923)';
+    $('aviatorStatus').textContent = `অভিনন্দন! আপনি জিতেছেন ${winTotal} ৳ (${multiplier}x)`;
+  }
+}
+
+function favorite(btn){
+  btn.classList.toggle('active');
+  const icon = btn.querySelector('i');
+  icon.classList.toggle('fa-regular');
+  icon.classList.toggle('fa-solid');
+}
+
+function filterGames(category, btn){
+  document.querySelectorAll('.category').forEach(el => el.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  document.querySelectorAll('.game-card').forEach(card => {
+    card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
+  });
+}
+
+function searchGames(){
+  const q = $('gameSearch').value.toLowerCase();
+  document.querySelectorAll('.game-card').forEach(card => {
+    card.style.display = card.dataset.name.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+function goTo(section, btn){
+  if(section === 'top') window.scrollTo({top: 0, behavior: 'smooth'});
+  else $(section).scrollIntoView({behavior: 'smooth'});
+
+  if(btn){
+    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+    btn.classList.add('active');
+  }
+}
+
+async function shareSite(){
+  const shareData = {title: '111BD.VIP', text: '111BD বাংলা গেমিং প্ল্যাটফর্ম দেখুন।', url: window.location.href};
+  try{
+    if(navigator.share) await navigator.share(shareData);
+    else if(navigator.clipboard){
+      await navigator.clipboard.writeText(window.location.href);
+      alert('ওয়েবসাইটের লিংক কপি হয়েছে।');
+    }
+  }catch(e){}
+}
+
+updateUserUI();
+</script>
 </body>
-                                                  </html>
+    </html>
