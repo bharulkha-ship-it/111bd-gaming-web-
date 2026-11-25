@@ -1,122 +1,573 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>111BD - Bangla Gaming Web</title>
+<meta name="theme-color" content="#080d0b">
+<title>111BD | Bangla Gaming Web</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#080808;color:white;font-family:Arial,sans-serif}
-header{padding:17px;display:flex;justify-content:space-between;align-items:center;background:#111;border-bottom:1px solid #bd9132}
-.logo{font-size:30px;font-weight:900;color:#edca70}
-.balance{color:#f5d27a;font-weight:bold}
-button{background:linear-gradient(135deg,#f8df8b,#a87519);color:#111;border:0;border-radius:8px;padding:12px 17px;font-weight:bold;cursor:pointer}
-.hero{margin:16px;padding:35px 15px;text-align:center;border:1px solid #a77b25;border-radius:15px;background:radial-gradient(circle at top right,#594018,#100c06 65%)}
-.hero h1{font-size:35px;color:#f5d27a;margin-bottom:15px}
-.hero p{color:#ddd;line-height:1.8}
-.section{padding:18px}
-.section h2{color:#e8c46a;margin-bottom:17px}
-.notice{margin:16px;padding:15px;text-align:center;color:#f2d27e;background:#20190e;border:1px solid #806024;border-radius:9px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
-.game{padding:20px 10px;text-align:center;background:linear-gradient(145deg,#292016,#111);border:1px solid #71521f;border-radius:13px}
-.emoji{font-size:42px;margin-bottom:13px}
-.game h3{color:#f2d27e;margin-bottom:15px}
-.game button{width:100%}
-.wallet{padding:22px;text-align:center;background:#171717;border:1px solid #806024;border-radius:12px}
-.wallet h2{font-size:27px;color:#f5d27a;margin:10px}
-.nav{position:fixed;bottom:0;left:0;width:100%;display:flex;justify-content:space-around;background:#151515;padding:15px 5px;border-top:1px solid #8e6928}
-.nav a{color:#e7c56e;text-decoration:none;font-size:13px}
-main{padding-bottom:75px}
-footer{text-align:center;color:#888;padding:25px}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+ --bg:#080d0b;
+ --panel:#111a15;
+ --green:#123d2b;
+ --gold:#e9bd61;
+ --gold2:#b78332;
+ --white:#f8f5ec;
+ --muted:#9ca99e;
+ --border:rgba(233,189,97,.22);
+}
+body{
+ background:var(--bg);color:var(--white);
+ font-family:Arial,sans-serif;
+ padding-bottom:85px;
+}
+button,input{font-family:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+header{
+ height:70px;padding:0 5%;
+ display:flex;align-items:center;justify-content:space-between;
+ background:#0d1510;border-bottom:1px solid var(--border);
+ position:sticky;top:0;z-index:20;
+}
+.logo{font-size:29px;font-weight:1000;color:var(--gold);letter-spacing:2px}
+.logo small{display:block;font-size:8px;letter-spacing:3px;color:#b8c1b8}
+.header-right{display:flex;align-items:center;gap:10px}
+.btn{
+ border:0;border-radius:7px;padding:11px 17px;
+ font-weight:bold;background:linear-gradient(135deg,#f5d98c,#bd872d);
+ color:#171208;
+}
+.btn-outline{
+ background:transparent;border:1px solid var(--gold);
+ color:var(--gold);
+}
+.balance{color:var(--gold);font-weight:bold;font-size:14px}
+.container{max-width:1150px;margin:auto;padding:0 16px}
+.hero{
+ margin:22px auto 18px;min-height:235px;
+ border:1px solid var(--border);border-radius:16px;
+ padding:35px 25px;display:flex;align-items:center;
+ background:
+ radial-gradient(ellipse at 80% 20%,#24583b 0%,transparent 40%),
+ linear-gradient(120deg,#142d20,#09120d 70%);
+ position:relative;overflow:hidden;
+}
+.hero-content{max-width:580px;position:relative;z-index:1}
+.hero-tag{
+ display:inline-block;padding:7px 12px;border-radius:30px;
+ background:#25452e;color:#f5d98c;font-size:11px;
+ letter-spacing:1px;margin-bottom:15px;
+}
+.hero h1{font-size:clamp(30px,6vw,49px);color:var(--gold);margin-bottom:12px}
+.hero p{color:#d2dbd3;line-height:1.7;font-size:14px}
+.hero-actions{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.hero-art{
+ position:absolute;right:5%;font-size:100px;
+ opacity:.85;filter:drop-shadow(0 0 20px #bd872d);
+}
+.notice{
+ margin:15px 0;padding:13px;text-align:center;
+ background:#14251a;border:1px solid var(--border);
+ border-radius:9px;color:var(--gold);font-size:13px;
+}
+.section{padding:23px 0}
+.section-head{
+ display:flex;align-items:center;justify-content:space-between;
+ margin-bottom:17px;
+}
+.section-head h2{font-size:20px;color:var(--gold)}
+.section-head span{font-size:12px;color:var(--muted)}
+.categories{
+ display:flex;gap:9px;overflow-x:auto;padding:3px 0 13px;
+ scrollbar-width:none;
+}
+.category{
+ white-space:nowrap;border:1px solid var(--border);
+ color:#d6dfd7;background:#111a15;
+ border-radius:25px;padding:10px 17px;font-size:12px;
+}
+.category.active{background:var(--gold);color:#171208;font-weight:bold}
+.grid{
+ display:grid;grid-template-columns:repeat(4,1fr);gap:15px;
+}
+.game{
+ border:1px solid var(--border);border-radius:13px;
+ overflow:hidden;background:linear-gradient(145deg,#17251b,#101611);
+ transition:.2s;
+}
+.game:hover{transform:translateY(-3px);border-color:var(--gold)}
+.game-art{
+ height:125px;display:flex;align-items:center;justify-content:center;
+ font-size:65px;background:radial-gradient(circle,#345b39,#142319 70%);
+}
+.game-info{padding:13px}
+.game-info h3{font-size:14px;color:var(--gold);margin-bottom:7px}
+.game-info p{font-size:11px;color:var(--muted);margin-bottom:12px}
+.game-info button{width:100%;padding:10px}
+.wallet-card{
+ border:1px solid var(--border);border-radius:14px;
+ padding:23px;background:linear-gradient(120deg,#193d2b,#101b14);
+}
+.wallet-card p{color:#c0c9c0;font-size:13px}
+.wallet-number{font-size:34px;color:var(--gold);font-weight:bold;margin:12px 0}
+.wallet-actions{display:flex;gap:10px;margin-top:15px;flex-wrap:wrap}
+.history{
+ margin-top:15px;background:var(--panel);
+ border:1px solid var(--border);border-radius:12px;padding:17px;
+}
+.history h3{color:var(--gold);margin-bottom:14px;font-size:16px}
+.transaction{
+ display:flex;justify-content:space-between;gap:10px;
+ padding:12px 0;border-bottom:1px solid #28332b;font-size:12px;
+}
+.transaction:last-child{border:0}
+.muted{color:var(--muted)}
+.profile-card{
+ padding:20px;border-radius:12px;border:1px solid var(--border);
+ background:var(--panel);line-height:2;
+}
+footer{text-align:center;color:#778278;font-size:12px;padding:30px 10px}
+.bottom-nav{
+ position:fixed;bottom:0;left:0;width:100%;z-index:30;
+ display:flex;justify-content:space-around;
+ padding:12px 5px calc(12px + env(safe-area-inset-bottom));
+ background:#101811;border-top:1px solid var(--border);
+}
+.bottom-nav a{
+ text-align:center;color:#c7d0c7;font-size:11px;
+}
+.bottom-nav b{display:block;font-size:19px;margin-bottom:4px}
+.bottom-nav a:hover{color:var(--gold)}
+.modal{
+ display:none;position:fixed;inset:0;z-index:100;
+ background:#000c;align-items:center;justify-content:center;
+ padding:16px;overflow-y:auto;
+}
+.modal-box{
+ width:100%;max-width:410px;background:#111a14;
+ border:1px solid var(--gold2);border-radius:15px;
+ padding:23px;position:relative;
+}
+.modal-box h2{text-align:center;color:var(--gold);margin:10px 0 20px}
+.close{
+ position:absolute;right:13px;top:12px;
+ background:#28352b;color:white;border:0;
+ padding:7px 11px;border-radius:6px;
+}
+.modal-box input{
+ width:100%;padding:14px;margin-bottom:13px;
+ background:#080d0b;border:1px solid #46513e;
+ border-radius:7px;color:white;outline:none;
+}
+.modal-box input:focus{border-color:var(--gold)}
+.modal-box form .btn{width:100%;padding:14px}
+.switch{text-align:center;font-size:13px;color:#b8c2b8;margin-top:17px}
+.switch span{color:var(--gold);cursor:pointer;text-decoration:underline}
+.message{text-align:center;color:var(--gold);font-size:13px;margin-top:12px}
+.hidden{display:none!important}
+@media(max-width:700px){
+ .grid{grid-template-columns:repeat(2,1fr);gap:11px}
+ .hero{min-height:220px;padding:25px 18px}
+ .hero-art{right:0;font-size:75px;opacity:.3}
+ .hero h1{font-size:32px}
+ header{padding:0 13px}
+ .logo{font-size:24px}
+ .header-right{gap:6px}
+ .header-right .btn{padding:10px;font-size:11px}
+}
+@media(min-width:900px){
+ .container{padding:0 24px}
+ .hero{padding-left:45px}
+}
 </style>
 </head>
+
 <body>
 
 <header>
- <div class="logo">111BD</div>
- <div class="balance">৳ <span id="balance">1000</span></div>
- <button onclick="alert('Account section coming soon')">LOGIN</button>
+ <a href="#" class="logo">111BD<small>BANGLA GAMING WEB</small></a>
+ <div class="header-right">
+  <div class="balance">🪙 <span id="balance">0</span></div>
+  <button class="btn btn-outline" id="loginButton" onclick="openAuth('login')">LOGIN</button>
+  <button class="btn" id="registerButton" onclick="openAuth('register')">REGISTER</button>
+  <button class="btn btn-outline hidden" id="logoutButton" onclick="logout()">LOGOUT</button>
+ </div>
 </header>
 
-<main>
+<main class="container">
+
 <section class="hero">
- <h1>WELCOME TO 111BD</h1>
- <p>BANGLA GAMING WEB</p>
- <p>Enjoy Your Gaming Experience</p>
- <br>
- <button onclick="location.href='#games'">PLAY BY 111</button>
+ <div class="hero-content">
+  <span class="hero-tag">★ WELCOME TO 111BD ★</span>
+  <h1>PLAY YOUR WAY</h1>
+  <p>Welcome to 111BD Bangla Gaming Web.<br>
+  Explore games and enjoy your virtual gaming experience.</p>
+  <div class="hero-actions">
+   <button class="btn" onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">EXPLORE GAMES</button>
+   <button class="btn btn-outline" onclick="openAuth('register')">JOIN NOW</button>
+  </div>
+ </div>
+ <div class="hero-art">🎮</div>
 </section>
 
-<div class="notice">★ WELCOME TO 111BD ★</div>
+<div class="notice">✦ WELCOME TO 111BD — YOUR GAMING DESTINATION ✦</div>
 
 <section class="section" id="games">
-<h2>🔥 POPULAR GAMES</h2>
-<div class="grid">
+ <div class="section-head">
+  <h2>🔥 POPULAR GAMES</h2>
+  <span>DEMO GAMES</span>
+ </div>
 
-<div class="game">
-<div class="emoji">🎰</div>
-<h3>Golden Slot</h3>
-<button onclick="playGame()">PLAY BY 111</button>
-</div>
+ <div class="categories">
+  <button class="category active" onclick="filterGames('all',this)">All Games</button>
+  <button class="category" onclick="filterGames('slot',this)">Slots</button>
+  <button class="category" onclick="filterGames('card',this)">Cards</button>
+  <button class="category" onclick="filterGames('sports',this)">Sports</button>
+ </div>
 
-<div class="game">
-<div class="emoji">🎲</div>
-<h3>Lucky Dice</h3>
-<button onclick="playGame()">PLAY BY 111</button>
-</div>
+ <div class="grid">
+  <div class="game" data-category="slot">
+   <div class="game-art">🎰</div>
+   <div class="game-info">
+    <h3>Golden Slot</h3><p>Virtual credit game</p>
+    <button class="btn" onclick="playGame()">PLAY BY 111</button>
+   </div>
+  </div>
 
-<div class="game">
-<div class="emoji">🃏</div>
-<h3>Royal Cards</h3>
-<button onclick="playGame()">PLAY BY 111</button>
-</div>
+  <div class="game" data-category="slot">
+   <div class="game-art">🎲</div>
+   <div class="game-info">
+    <h3>Lucky Dice</h3><p>Coming soon</p>
+    <button class="btn" onclick="comingSoon()">PLAY BY 111</button>
+   </div>
+  </div>
 
-<div class="game">
-<div class="emoji">⚽</div>
-<h3>Sports Game</h3>
-<button onclick="playGame()">PLAY BY 111</button>
-</div>
+  <div class="game" data-category="card">
+   <div class="game-art">🃏</div>
+   <div class="game-info">
+    <h3>Royal Cards</h3><p>Coming soon</p>
+    <button class="btn" onclick="comingSoon()">PLAY BY 111</button>
+   </div>
+  </div>
 
-</div>
+  <div class="game" data-category="sports">
+   <div class="game-art">⚽</div>
+   <div class="game-info">
+    <h3>Sports Game</h3><p>Coming soon</p>
+    <button class="btn" onclick="comingSoon()">PLAY BY 111</button>
+   </div>
+  </div>
+
+  <div class="game" data-category="slot">
+   <div class="game-art">💎</div>
+   <div class="game-info">
+    <h3>Diamond Game</h3><p>Coming soon</p>
+    <button class="btn" onclick="comingSoon()">PLAY BY 111</button>
+   </div>
+  </div>
+
+  <div class="game" data-category="card">
+   <div class="game-art">👑</div>
+   <div class="game-info">
+    <h3>Royal Club</h3><p>Coming soon</p>
+    <button class="btn" onclick="comingSoon()">PLAY BY 111</button>
+   </div>
+  </div>
+
+  <div class="game" data-category="sports">
+   <div class="game-art">🏆</div>
+   <div class="game-info">
+    <h3>Champion</h3><p>Coming soon</p>
+    <button class="btn" onclick="comingSoon()">PLAY BY 111</button>
+   </div>
+  </div>
+
+  <div class="game" data-category="slot">
+   <div class="game-art">🌟</div>
+   <div class="game-info">
+    <h3>Star Spin</h3><p>Coming soon</p>
+    <button class="btn" onclick="comingSoon()">PLAY BY 111</button>
+   </div>
+  </div>
+ </div>
 </section>
 
 <section class="section" id="wallet">
-<h2>💰 MY WALLET</h2>
-<div class="wallet">
-<p>AVAILABLE DEMO CREDITS</p>
-<h2 id="walletBalance">1000</h2>
-<p style="color:#aaa">Virtual credits only</p>
-</div>
+ <div class="section-head">
+  <h2>💰 MY WALLET</h2>
+  <span>VIRTUAL CREDITS</span>
+ </div>
+ <div class="wallet-card">
+  <p>AVAILABLE DEMO BALANCE</p>
+  <div class="wallet-number">🪙 <span id="walletBalance">0</span></div>
+  <p>Virtual credits only — no cash value</p>
+  <div class="wallet-actions">
+   <button class="btn" onclick="showTransactions()">TRANSACTION HISTORY</button>
+   <button class="btn btn-outline" onclick="openAuth('login')">ACCOUNT LOGIN</button>
+  </div>
+ </div>
+ <div class="history">
+  <h3>RECENT TRANSACTIONS</h3>
+  <div id="transactions"><p class="muted">Login to view your transactions.</p></div>
+ </div>
 </section>
+
+<section class="section" id="profile">
+ <div class="section-head"><h2>👤 MY PROFILE</h2></div>
+ <div class="profile-card">
+  <p>Username: <strong id="profileName">Guest</strong></p>
+  <p>Email: <strong id="profileEmail">Not logged in</strong></p>
+  <p>Account: <strong id="profileStatus">Guest</strong></p>
+  <button class="btn" style="margin-top:12px" onclick="openAuth('login')">LOGIN / REGISTER</button>
+ </div>
+</section>
+
 </main>
 
-<nav class="nav">
-<a href="#">🏠 Home</a>
-<a href="#games">🎮 Games</a>
-<a href="#wallet">💰 Wallet</a>
-<a href="#">👤 Profile</a>
-</nav>
-
 <footer>
-111BD BANGLA GAMING WEB<br>
-© 2026 111BD
+ <div class="logo">111BD</div>
+ <p>Bangla Gaming Web</p>
+ <p style="margin-top:10px">© 2026 111BD. All rights reserved.</p>
+ <p style="margin-top:8px">Demo virtual credits only. No real-money gambling or cash prizes.</p>
 </footer>
 
-<script>
-let balance=1000;
+<nav class="bottom-nav">
+ <a href="#"><b>⌂</b>HOME</a>
+ <a href="#games"><b>🎮</b>GAMES</a>
+ <a href="#wallet"><b>💰</b>WALLET</a>
+ <a href="#profile"><b>👤</b>PROFILE</a>
+</nav>
 
-function playGame(){
- if(balance<10){
-  alert("Not enough demo credits");
+<!-- LOGIN AND REGISTER MODAL -->
+<div class="modal" id="authModal">
+ <div class="modal-box">
+  <button class="close" onclick="closeAuth()">✕</button>
+  <h2 id="formTitle">111BD LOGIN</h2>
+
+  <form id="authForm">
+   <input id="username" placeholder="Username" minlength="2" maxlength="30" class="hidden">
+   <input id="email" type="email" placeholder="Email Address" required>
+   <input id="password" type="password" placeholder="Password (minimum 8 characters)" minlength="8" required>
+   <button class="btn" type="submit" id="submitButton">LOGIN</button>
+  </form>
+
+  <div class="message" id="authMessage"></div>
+  <div class="switch" id="switchText">
+   New member? <span onclick="openAuth('register')">REGISTER NOW</span>
+  </div>
+ </div>
+</div>
+
+<script>
+let balance=0;
+let currentUser=null;
+let authMode='login';
+
+function openAuth(mode){
+ authMode=mode;
+ document.getElementById('authModal').style.display='flex';
+ document.getElementById('formTitle').textContent=
+ mode==='login'?'111BD LOGIN':'111BD REGISTER';
+ document.getElementById('submitButton').textContent=
+ mode==='login'?'LOGIN':'CREATE ACCOUNT';
+
+ const username=document.getElementById('username');
+ username.classList.toggle('hidden',mode!=='register');
+ username.required=mode==='register';
+
+ document.getElementById('switchText').innerHTML=
+ mode==='login'
+ ?'New member? <span onclick="openAuth(\'register\')">REGISTER NOW</span>'
+ :'Already a member? <span onclick="openAuth(\'login\')">LOGIN NOW</span>';
+
+ document.getElementById('authMessage').textContent='';
+ document.getElementById('authForm').reset();
+}
+
+function closeAuth(){
+ document.getElementById('authModal').style.display='none';
+}
+
+document.getElementById('authModal').addEventListener('click',e=>{
+ if(e.target.id==='authModal')closeAuth();
+});
+
+document.getElementById('authForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const message=document.getElementById('authMessage');
+ const button=document.getElementById('submitButton');
+ button.disabled=true;
+ message.textContent='Please wait...';
+
+ const data={
+  email:document.getElementById('email').value.trim(),
+  password:document.getElementById('password').value
+ };
+
+ if(authMode==='register'){
+  data.username=document.getElementById('username').value.trim();
+ }
+
+ try{
+  const response=await fetch('/api/'+authMode,{
+   method:'POST',
+   headers:{'Content-Type':'application/json'},
+   credentials:'same-origin',
+   body:JSON.stringify(data)
+  });
+
+  const result=await response.json();
+
+  if(!response.ok){
+   message.textContent=result.error||'Request failed.';
+   return;
+  }
+
+  currentUser=result.user;
+  updateUser();
+  message.textContent='Welcome to 111BD!';
+  await loadTransactions();
+  setTimeout(closeAuth,900);
+
+ }catch(error){
+  message.textContent='Server connection failed. Try again.';
+ }finally{
+  button.disabled=false;
+ }
+});
+
+function updateUser(){
+ if(!currentUser)return;
+ balance=currentUser.balance;
+ document.getElementById('balance').textContent=balance;
+ document.getElementById('walletBalance').textContent=balance;
+ document.getElementById('profileName').textContent=currentUser.username;
+ document.getElementById('profileEmail').textContent=currentUser.email;
+ document.getElementById('profileStatus').textContent='Logged in';
+ document.getElementById('loginButton').classList.add('hidden');
+ document.getElementById('registerButton').classList.add('hidden');
+ document.getElementById('logoutButton').classList.remove('hidden');
+}
+
+function updateBalance(value){
+ balance=value;
+ document.getElementById('balance').textContent=value;
+ document.getElementById('walletBalance').textContent=value;
+ if(currentUser)currentUser.balance=value;
+}
+
+async function checkLogin(){
+ try{
+  const response=await fetch('/api/me',{credentials:'same-origin'});
+  if(!response.ok)return;
+  const data=await response.json();
+  currentUser=data.user;
+  updateUser();
+  await loadTransactions();
+ }catch(e){}
+}
+
+async function logout(){
+ try{
+  await fetch('/api/logout',{
+   method:'POST',credentials:'same-origin'
+  });
+ }catch(e){}
+ currentUser=null;
+ balance=0;
+ updateBalance(0);
+ document.getElementById('profileName').textContent='Guest';
+ document.getElementById('profileEmail').textContent='Not logged in';
+ document.getElementById('profileStatus').textContent='Guest';
+ document.getElementById('loginButton').classList.remove('hidden');
+ document.getElementById('registerButton').classList.remove('hidden');
+ document.getElementById('logoutButton').classList.add('hidden');
+ document.getElementById('transactions').textContent='Login to view your transactions.';
+}
+
+async function loadTransactions(){
+ const box=document.getElementById('transactions');
+ try{
+  const response=await fetch('/api/transactions',{credentials:'same-origin'});
+  if(!response.ok){
+   box.textContent='Unable to load transactions.';
+   return;
+  }
+  const data=await response.json();
+  if(!data.transactions.length){
+   box.textContent='No transactions yet.';
+   return;
+  }
+  box.innerHTML='';
+  data.transactions.forEach(item=>{
+   const row=document.createElement('div');
+   row.className='transaction';
+   const description=document.createElement('span');
+   description.textContent=item.note+' · '+item.created_at;
+   const amount=document.createElement('strong');
+   amount.textContent=(item.amount>0?'+':'')+item.amount;
+   amount.style.color=item.amount>=0?'#e9bd61':'#e78b70';
+   row.append(description,amount);
+   box.appendChild(row);
+  });
+ }catch(e){
+  box.textContent='Connection error.';
+ }
+}
+
+function showTransactions(){
+ if(!currentUser){
+  openAuth('login');
   return;
  }
- balance-=10;
- document.getElementById("balance").innerText=balance;
- document.getElementById("walletBalance").innerText=balance;
- alert("Welcome to 111BD! 10 virtual credits used.");
+ loadTransactions();
+ document.getElementById('transactions').scrollIntoView({behavior:'smooth'});
 }
+
+async function playGame(){
+ if(!currentUser){
+  alert('Please login or register first.');
+  openAuth('login');
+  return;
+ }
+ try{
+  const response=await fetch('/api/game/slot',{
+   method:'POST',
+   headers:{'Content-Type':'application/json'},
+   credentials:'same-origin',
+   body:JSON.stringify({bet:10})
+  });
+  const data=await response.json();
+  if(!response.ok){
+   alert(data.error||'Game unavailable.');
+   return;
+  }
+  updateBalance(data.balance);
+  await loadTransactions();
+  alert('111BD SLOT RESULT\n'+data.result.join(' ')+'\nPayout: '+data.payout+'\nBalance: '+data.balance);
+ }catch(e){
+  alert('Server connection failed.');
+ }
+}
+
+function comingSoon(){
+ alert('This demo game is coming soon!');
+}
+
+function filterGames(category,button){
+ document.querySelectorAll('.category').forEach(x=>x.classList.remove('active'));
+ button.classList.add('active');
+ document.querySelectorAll('.game').forEach(game=>{
+  game.style.display=
+  category==='all'||game.dataset.category===category?'block':'none';
+ });
+}
+
+checkLogin();
 </script>
+
 </body>
 </html>
-
