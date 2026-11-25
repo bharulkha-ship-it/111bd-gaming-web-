@@ -50,7 +50,7 @@ header{
   background:none;border:0;color:var(--gold);font-size:21px;padding:4px;
 }
 .logo{
-  font-size:26px;font-weight:800;letter-spacing:.5px;
+  font-size:25px;font-weight:800;letter-spacing:.5px;
   background:linear-gradient(90deg,#fff0a6,#f4bd35,#bd79ff);
   -webkit-background-clip:text;background-clip:text;color:transparent;
   text-decoration:none;
@@ -58,8 +58,8 @@ header{
 .logo span{font-size:13px;color:#d6aaff}
 .header-actions{display:flex;align-items:center;gap:8px}
 .btn{
-  border:0;border-radius:25px;padding:8px 16px;
-  font-weight:700;font-size:14px;transition:.2s;
+  border:0;border-radius:25px;padding:8px 15px;
+  font-weight:700;font-size:13px;transition:.2s;
 }
 .btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
 .btn-login{background:#30213f;color:#fff;border:1px solid #72519a}
@@ -69,7 +69,8 @@ header{
 }
 .user-balance{
   display:none;background:#241a30;border:1px solid #604b27;
-  color:var(--gold);border-radius:20px;padding:6px 12px;font-size:13px;font-weight:700;
+  color:var(--gold);border-radius:20px;padding:6px 11px;font-size:12px;font-weight:700;
+  cursor:pointer;
 }
 
 /* Side Drawer */
@@ -80,7 +81,7 @@ header{
 .side-drawer{
   position:fixed;top:0;left:-270px;width:260px;height:100%;
   background:#170d26;border-right:1px solid #493166;z-index:95;
-  padding:20px;transition:.3s ease;display:flex;flex-direction:column;gap:12px;
+  padding:20px;transition:.3s ease;display:flex;flex-direction:column;gap:10px;
 }
 .side-drawer.open{left:0}
 .drawer-header{
@@ -113,8 +114,8 @@ header{
 /* Main banner Slider */
 .hero{padding:18px 0 12px}
 .hero-banner{
-  min-height:200px;border-radius:20px;overflow:hidden;
-  padding:24px;position:relative;
+  min-height:195px;border-radius:20px;overflow:hidden;
+  padding:22px;position:relative;
   background:
     radial-gradient(circle at 80% 20%,#8b45c5 0,transparent 32%),
     radial-gradient(circle at 100% 100%,#276c60 0,transparent 35%),
@@ -124,7 +125,7 @@ header{
 }
 .hero-banner:after{
   content:"✦";position:absolute;right:8%;top:5%;
-  font-size:120px;color:#ffdf8030;transform:rotate(15deg);pointer-events:none;
+  font-size:115px;color:#ffdf8030;transform:rotate(15deg);pointer-events:none;
 }
 .hero-content{position:relative;z-index:2;max-width:650px}
 .vip-tag{
@@ -132,15 +133,15 @@ header{
   color:#2b1800;background:linear-gradient(90deg,#ffe58a,#e6ac32);
   font-size:12px;font-weight:800;margin-bottom:10px;
 }
-.hero h1{font-size:clamp(23px,5vw,36px);line-height:1.25;margin-bottom:8px}
+.hero h1{font-size:clamp(22px,5vw,35px);line-height:1.25;margin-bottom:8px}
 .hero h1 span{color:var(--gold)}
-.hero p{color:#e0d4ee;font-size:14px;margin-bottom:16px}
+.hero p{color:#e0d4ee;font-size:14px;margin-bottom:15px}
 .hero-btn{
   display:inline-block;border:0;border-radius:25px;padding:9px 20px;
   background:linear-gradient(90deg,#ffe28a,#e9ac2a);
   color:#261700;font-weight:800;font-size:14px;
 }
-.hero-dots{display:flex;gap:6px;margin-top:16px}
+.hero-dots{display:flex;gap:6px;margin-top:15px}
 .hero-dots span{
   width:8px;height:8px;border-radius:50%;background:#ffffff55;cursor:pointer;transition:.3s;
 }
@@ -159,7 +160,7 @@ header{
   padding:6px 13px;display:flex;align-items:center;gap:7px;
 }
 .search-box input{
-  background:none;border:0;color:#fff;font-size:13px;outline:none;width:140px;
+  background:none;border:0;color:#fff;font-size:13px;outline:none;width:135px;
 }
 .categories{
   display:grid;grid-template-columns:repeat(6,1fr);gap:10px;
@@ -184,14 +185,14 @@ header{
 }
 .game-card:hover{transform:translateY(-4px);border-color:#8a62a9}
 .game-art{
-  height:140px;display:flex;align-items:center;justify-content:center;
+  height:135px;display:flex;align-items:center;justify-content:center;
   position:relative;overflow:hidden;
 }
 .game-art:before{
   content:"";position:absolute;border-radius:50%;
-  width:140px;height:140px;background:#ffffff12;
+  width:130px;height:130px;background:#ffffff12;
 }
-.game-art i{font-size:50px;color:#fff;z-index:1;filter:drop-shadow(0 5px 9px #0008)}
+.game-art > i{font-size:48px;color:#fff;z-index:1;filter:drop-shadow(0 5px 9px #0008)}
 .art-aviator{background:linear-gradient(135deg,#5a183d,#d74c63,#401a59)}
 .art-ace{background:linear-gradient(135deg,#164c43,#22a879,#173d51)}
 .art-bounty{background:linear-gradient(135deg,#6b3518,#d18a2b,#362049)}
@@ -207,9 +208,11 @@ header{
 }
 .favorite{
   position:absolute;right:9px;top:9px;z-index:3;
-  border:0;background:#160d25a8;color:#fff;
-  width:29px;height:29px;border-radius:50%;
+  border:0;background:rgba(16,9,29,.65);color:#fff;
+  width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
 }
+.favorite i{font-size:14px}
 .favorite.active{color:#ff5d8d}
 .game-info{padding:11px}
 .game-info h3{font-size:14px;margin-bottom:8px}
@@ -221,20 +224,44 @@ header{
   font-size:12px;font-weight:800;
 }
 
-/* Wallet & History */
+/* Wallet & Deposit */
 .wallet-box{
   background:linear-gradient(120deg,#1b4b3e,#1c2837);
   border:1px solid #317c61;border-radius:16px;padding:18px;
   display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
 }
 .wallet-box small{color:#c0ded2}
-.wallet-box h3{font-size:25px;color:#8ff0c5}
-.wallet-actions{display:flex;gap:8px}
+.wallet-box h3{font-size:26px;color:#8ff0c5}
+.wallet-actions{display:flex;gap:8px;flex-wrap:wrap}
 .wallet-box button{
-  background:#b8f4d7;color:#123326;border:0;border-radius:20px;
-  padding:9px 14px;font-weight:800;font-size:13px;
+  background:linear-gradient(90deg,#ffe28a,#e6ad2d);color:#201400;border:0;border-radius:20px;
+  padding:9px 15px;font-weight:800;font-size:13px;display:flex;align-items:center;gap:6px;
 }
+.wallet-box button.withdraw-btn{background:#b8f4d7;color:#123326}
 .wallet-box button.secondary{background:#243b4a;color:#fff;border:1px solid #48738f}
+
+/* Deposit Modal Styles */
+.pay-methods{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.pay-method{
+  background:#150c22;border:1.5px solid #432d59;border-radius:12px;
+  padding:10px 5px;text-align:center;color:#fff;font-weight:700;font-size:13px;
+  transition:.2s;
+}
+.pay-method.active{border-color:var(--gold);background:#2d1c42;color:var(--gold)}
+.quick-amounts{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:10px 0}
+.amt-chip{
+  background:#150c22;border:1px solid #49345d;border-radius:8px;
+  padding:7px 4px;color:#fff;font-size:13px;font-weight:700;
+}
+.amt-chip:hover,.amt-chip.active{background:var(--gold);color:#201400;border-color:var(--gold)}
+.agent-box{
+  background:#130b1f;border:1px dashed var(--gold);border-radius:10px;
+  padding:10px;margin:10px 0;font-size:12px;display:flex;justify-content:space-between;align-items:center;
+}
+.copy-badge{
+  background:var(--gold);color:#201400;border:0;border-radius:6px;
+  padding:4px 8px;font-weight:800;font-size:11px;
+}
 
 /* Footer */
 footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
@@ -262,22 +289,22 @@ footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
 .modal-box{
   width:min(430px,100%);background:#211431;border:1px solid #654584;
   border-radius:18px;padding:22px;position:relative;
-  box-shadow:0 15px 50px #0009;max-height:85vh;overflow-y:auto;
+  box-shadow:0 15px 50px #0009;max-height:88vh;overflow-y:auto;
 }
 .modal-close{
   position:absolute;right:15px;top:12px;background:none;
   border:0;color:#cfc3dc;font-size:22px;
 }
-.modal-box h2{font-size:22px;margin-bottom:5px;color:var(--gold)}
-.modal-box p{font-size:13px;color:var(--muted);margin-bottom:15px}
+.modal-box h2{font-size:21px;margin-bottom:5px;color:var(--gold)}
+.modal-box p{font-size:13px;color:var(--muted);margin-bottom:12px}
 .form-input{
-  width:100%;padding:12px 13px;margin:7px 0;
+  width:100%;padding:11px 13px;margin:6px 0;
   background:#130d1e;border:1px solid #49345d;border-radius:10px;
-  color:#fff;font:inherit;outline:none;
+  color:#fff;font:inherit;outline:none;font-size:14px;
 }
 .form-input:focus{border-color:var(--gold)}
 .submit-btn{
-  width:100%;margin-top:12px;padding:12px;border:0;border-radius:10px;
+  width:100%;margin-top:10px;padding:12px;border:0;border-radius:10px;
   background:linear-gradient(90deg,#ffe28a,#e5a923);
   color:#241600;font-weight:800;font-size:15px;
 }
@@ -311,8 +338,9 @@ footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
     <button class="modal-close" style="position:static" onclick="toggleDrawer()">&times;</button>
   </div>
   <button class="drawer-link" onclick="toggleDrawer();goTo('top')"><i class="fa-solid fa-house"></i> হোম</button>
+  <button class="drawer-link" onclick="toggleDrawer();openDeposit()"><i class="fa-solid fa-circle-plus"></i> ডিপোজিট</button>
+  <button class="drawer-link" onclick="toggleDrawer();openWithdraw()"><i class="fa-solid fa-money-bill-transfer"></i> উইথড্র</button>
   <button class="drawer-link" onclick="toggleDrawer();goTo('games')"><i class="fa-solid fa-gamepad"></i> গেমস</button>
-  <button class="drawer-link" onclick="toggleDrawer();goTo('wallet')"><i class="fa-solid fa-wallet"></i> আমার ওয়ালেট</button>
   <button class="drawer-link" onclick="toggleDrawer();openHistory()"><i class="fa-solid fa-clock-rotate-left"></i> লেনদেনের ইতিহাস</button>
   <button class="drawer-link" onclick="toggleDrawer();openProfile()"><i class="fa-solid fa-user"></i> প্রোফাইল</button>
 </aside>
@@ -325,7 +353,7 @@ footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
     </div>
 
     <div class="header-actions">
-      <div class="user-balance" id="headerBalance">বর্তমান ব্যালেন্স: ৳ <span id="balanceTop">1000</span></div>
+      <div class="user-balance" id="headerBalance" onclick="openDeposit()">বর্তমান ব্যালেন্স: ৳ <span id="balanceTop">1000</span> +</div>
       <button class="btn btn-login" id="loginBtn" onclick="openAuth('login')">লগইন</button>
       <button class="btn btn-register" id="registerBtn" onclick="openAuth('register')">নিবন্ধন</button>
       <button class="btn btn-login" id="logoutBtn" onclick="logout()" style="display:none">লগআউট</button>
@@ -339,7 +367,7 @@ footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
     <i class="fa-solid fa-bullhorn ticker-icon"></i>
     <div style="overflow:hidden;width:100%">
       <div class="ticker-text">
-        স্বাগতম 111BD.VIP-এ! নতুন সদস্য নিবন্ধনে পাচ্ছেন ১,০০০ ফ্রি ডেমো ক্রেডিট। ১১১ দিয়ে খেলুন এবং দারুণ বিনোদন উপভোগ করুন।
+        স্বাগতম 111BD.VIP-এ! বিকাশ, নগদ ও রকেটের মাধ্যমে দ্রুত ডিপোজিট ও ওয়ালেট ব্যালেন্স পরিচালনা করুন। ১১১ দিয়ে খেলুন!
       </div>
     </div>
   </div>
@@ -509,8 +537,9 @@ footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
         <h3>৳ <span id="walletBalance">1000</span></h3>
       </div>
       <div class="wallet-actions">
-        <button onclick="resetDemoBalance()">রিফিল (+১০০০)</button>
-        <button class="secondary" onclick="openHistory()">লেনদেনের ইতিহাস</button>
+        <button onclick="openDeposit()"><i class="fa-solid fa-circle-plus"></i> ডিপোজিট</button>
+        <button class="withdraw-btn" onclick="openWithdraw()"><i class="fa-solid fa-arrow-up-from-bracket"></i> উইথড্র</button>
+        <button class="secondary" onclick="openHistory()"><i class="fa-solid fa-clock-rotate-left"></i> ইতিহাস</button>
       </div>
     </div>
   </section>
@@ -529,8 +558,8 @@ footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
   <button class="nav-item" onclick="shareSite()">
     <i class="fa-solid fa-share-nodes"></i><span>শেয়ার</span>
   </button>
-  <button class="nav-item" onclick="goTo('wallet',this)">
-    <i class="fa-solid fa-wallet"></i><span>আমার ওয়ালেট</span>
+  <button class="nav-item" onclick="openDeposit()">
+    <i class="fa-solid fa-circle-plus" style="color:var(--gold);font-size:22px"></i><span style="color:var(--gold)">ডিপোজিট</span>
   </button>
   <button class="nav-item" onclick="goTo('games',this)">
     <i class="fa-solid fa-gamepad"></i><span>গেমস</span>
@@ -539,6 +568,65 @@ footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
     <i class="fa-solid fa-user"></i><span>প্রোফাইল</span>
   </button>
 </nav>
+
+<!-- Deposit Modal -->
+<div class="modal" id="depositModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('depositModal')">&times;</button>
+    <h2><i class="fa-solid fa-circle-plus"></i> ডিপোজিট করুন</h2>
+    <p>পেমেন্ট মেথড ও পরিমাণ নির্বাচন করুন (ডেমো)</p>
+
+    <label style="font-size:12px;color:var(--muted)">পেমেন্ট মেথড নির্বাচন করুন:</label>
+    <div class="pay-methods" id="depositMethods">
+      <button type="button" class="pay-method active" onclick="selectPayMethod(this, 'বিকাশ (bKash)')">বিকাশ</button>
+      <button type="button" class="pay-method" onclick="selectPayMethod(this, 'নগদ (Nagad)')">নগদ</button>
+      <button type="button" class="pay-method" onclick="selectPayMethod(this, 'রকেট (Rocket)')">রকেট</button>
+    </div>
+
+    <div class="agent-box">
+      <div>
+        <small style="color:var(--muted);display:block">এজেন্ট নম্বর (Send Money):</small>
+        <strong id="agentNumber" style="color:var(--gold);font-size:15px">01700-000111</strong>
+      </div>
+      <button type="button" class="copy-badge" onclick="copyAgent()">কপি করুন</button>
+    </div>
+
+    <label style="font-size:12px;color:var(--muted)">পরিমাণ নির্বাচন করুন:</label>
+    <div class="quick-amounts">
+      <button type="button" class="amt-chip" onclick="setDepositAmount(100, this)">১০০ ৳</button>
+      <button type="button" class="amt-chip active" onclick="setDepositAmount(500, this)">৫০০ ৳</button>
+      <button type="button" class="amt-chip" onclick="setDepositAmount(1000, this)">১০০০ ৳</button>
+      <button type="button" class="amt-chip" onclick="setDepositAmount(5000, this)">৫০০০ ৳</button>
+    </div>
+
+    <form id="depositForm">
+      <input class="form-input" id="depositAmount" type="number" value="500" min="100" max="50000" placeholder="ডিপোজিট পরিমাণ (৳)" required>
+      <input class="form-input" id="depositSender" type="text" placeholder="আপনার মোবাইল নম্বর (যেমন: 017XXXXXXXX)" required>
+      <input class="form-input" id="depositTrx" type="text" placeholder="ট্রানজেকশন আইডি (TrxID)" required>
+      <button class="submit-btn" type="submit">ডিপোজিট নিশ্চিত করুন</button>
+    </form>
+  </div>
+</div>
+
+<!-- Withdraw Modal -->
+<div class="modal" id="withdrawModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('withdrawModal')">&times;</button>
+    <h2><i class="fa-solid fa-money-bill-transfer"></i> উইথড্র করুন</h2>
+    <p>আপনার বর্তমান ব্যালেন্স: <strong style="color:var(--gold)">৳ <span id="withdrawAvail">1000</span></strong></p>
+
+    <form id="withdrawForm">
+      <select class="form-input" id="withdrawMethod">
+        <option value="বিকাশ">বিকাশ (bKash)</option>
+        <option value="নগদ">নগদ (Nagad)</option>
+        <option value="রকেট">রকেট (Rocket)</option>
+      </select>
+      <input class="form-input" id="withdrawAccount" type="text" placeholder="আপনার পার্সোনাল নম্বর দিন" required>
+      <input class="form-input" id="withdrawAmount" type="number" min="200" placeholder="উইথড্র পরিমাণ (সর্বনিম্ন ২০০ ৳)" required>
+      <button class="submit-btn" type="submit">উইথড্র অনুরোধ পাঠান</button>
+    </form>
+  </div>
+</div>
 
 <!-- Login / Register Modal -->
 <div class="modal" id="authModal">
@@ -573,7 +661,10 @@ footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
       <div class="history-item"><span>ইমেইল:</span><strong id="profEmail">-</strong></div>
       <div class="history-item"><span>বর্তমান ব্যালেন্স:</span><strong style="color:var(--gold)">৳ <span id="profBalance">1000</span></strong></div>
     </div>
-    <button class="submit-btn" onclick="closeModal('profileModal');openHistory()">লেনদেনের ইতিহাস দেখুন</button>
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button class="submit-btn" style="margin:0" onclick="closeModal('profileModal');openDeposit()">ডিপোজিট</button>
+      <button class="submit-btn" style="margin:0;background:#30213f;color:#fff" onclick="closeModal('profileModal');openHistory()">লেনদেনের ইতিহাস</button>
+    </div>
   </div>
 </div>
 
@@ -582,7 +673,7 @@ footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('historyModal')">&times;</button>
     <h2><i class="fa-solid fa-clock-rotate-left"></i> লেনদেনের ইতিহাস</h2>
-    <p>আপনার সাম্প্রতিক গেম ও ব্যালেন্সের হিসাব</p>
+    <p>আপনার সাম্প্রতিক ডিপোজিট, উইথড্র ও গেমের হিসাব</p>
     <div class="history-list" id="historyContainer"></div>
   </div>
 </div>
@@ -594,7 +685,6 @@ footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
     <h2 id="gameModalTitle"><i class="fa-solid fa-plane"></i> এভিয়েটর লাইভ</h2>
     <p>প্লেন ক্র্যাশ করার আগেই ক্যাশ-আউট করুন!</p>
 
-    <!-- গেম স্ক্রিন -->
     <div id="skyBox" style="
       height: 190px; background: radial-gradient(circle at bottom left, #2b1447, #0d0717);
       border: 1px solid #593a7a; border-radius: 15px; position: relative;
@@ -609,7 +699,6 @@ footer{text-align:center;color:#837991;font-size:12px;padding:25px 10px}
         color: #ff4d6d; transition: transform 0.1s linear;"></i>
     </div>
 
-    <!-- বেট কন্ট্রোল -->
     <div style="display: flex; gap: 8px; margin-bottom: 10px;">
       <input type="number" id="betAmount" class="form-input" value="50" min="10" max="500" style="margin: 0; text-align: center; font-weight: bold;">
       <button id="actionBtn" class="submit-btn" style="margin: 0;" onclick="handleAviatorAction()">খেলা শুরু করুন</button>
@@ -629,14 +718,14 @@ const slides = [
     desc: 'গেমিং ও বিনোদনের নতুন অভিজ্ঞতা উপভোগ করুন। নতুন সদস্যদের জন্য রয়েছে ১,০০০ ডেমো ক্রেডিট।'
   },
   {
-    tag: '<i class="fa-solid fa-gem"></i> ভিআইপি সদস্য সুবিধা',
-    title: 'প্রতিদিন <span>জনপ্রিয় গেম</span> খেলুন',
-    desc: 'এভিয়েটর, সুপার এস এবং বক্সিং কিং-এর মতো রোমাঞ্চকর গেম উপভোগ করুন।'
+    tag: '<i class="fa-solid fa-gem"></i> দ্রুত ডিপোজিট সুবিধা',
+    title: 'বিকাশ ও নগদে <span>সহজ ডিপোজিট</span>',
+    desc: 'যেকোনো সময় আপনার ওয়ালেটে ব্যালেন্স যোগ করুন এবং জনপ্রিয় গেমগুলো খেলুন।'
   },
   {
     tag: '<i class="fa-solid fa-gift"></i> ফ্রি ডেমো ওয়ালেট',
     title: 'সহজ <span>ওয়ালেট ও ইতিহাস</span>',
-    desc: 'যেকোনো সময় আপনার ব্যালেন্স রিফিল করুন এবং লেনদেনের ইতিহাস দেখুন।'
+    desc: 'আপনার প্রতিটি ডিপোজিট, উইথড্র এবং গেমের হিসাব দেখুন লেনদেনের ইতিহাসে।'
   }
 ];
 let currentSlide = 0;
@@ -662,6 +751,7 @@ function toggleDrawer(){
 let authMode = 'login';
 let currentUser = JSON.parse(localStorage.getItem('111bd_user')) || null;
 let historyData = JSON.parse(localStorage.getItem('111bd_history')) || [];
+let selectedMethod = 'বিকাশ (bKash)';
 
 function saveState(){
   if(currentUser){
@@ -725,12 +815,12 @@ function updateUserUI(){
   $('balanceTop').textContent = bal;
   $('walletBalance').textContent = bal;
   $('bannerBtn').innerHTML = loggedIn
-    ? 'গেম খেলুন <i class="fa-solid fa-gamepad"></i>'
+    ? 'ডিপোজিট করুন <i class="fa-solid fa-circle-plus"></i>'
     : 'এখনই যোগ দিন <i class="fa-solid fa-arrow-right"></i>';
 }
 
 function heroAction(){
-  if(currentUser) goTo('games');
+  if(currentUser) openDeposit();
   else openAuth('register');
 }
 
@@ -739,6 +829,79 @@ function logout(){
   saveState();
   updateUserUI();
 }
+
+// Deposit & Withdraw Logic
+function openDeposit(){
+  if(!currentUser){ openAuth('login'); return; }
+  $('depositModal').classList.add('show');
+}
+
+function selectPayMethod(btn, method){
+  selectedMethod = method;
+  document.querySelectorAll('#depositMethods .pay-method').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function setDepositAmount(amt, btn){
+  $('depositAmount').value = amt;
+  document.querySelectorAll('.amt-chip').forEach(c => c.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+}
+
+function copyAgent(){
+  const num = $('agentNumber').textContent;
+  navigator.clipboard?.writeText(num);
+  alert('নম্বর কপি হয়েছে: ' + num);
+}
+
+$('depositForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const amt = Number($('depositAmount').value);
+  const trx = $('depositTrx').value.trim();
+  if(amt < 100){ alert('সর্বনিম্ন ডিপোজিট ১০০ ৳'); return; }
+
+  currentUser.balance += amt;
+  historyData.unshift({
+    title: `ডিপোজিট (${selectedMethod} - ${trx})`,
+    amount: '+' + amt,
+    type: 'win',
+    time: new Date().toLocaleTimeString('bn-BD')
+  });
+  saveState();
+  updateUserUI();
+  $('depositTrx').value = '';
+  closeModal('depositModal');
+  alert(`সফল! আপনার ওয়ালেটে ${amt} ৳ ডিপোজিট যোগ হয়েছে।`);
+});
+
+function openWithdraw(){
+  if(!currentUser){ openAuth('login'); return; }
+  $('withdrawAvail').textContent = currentUser.balance;
+  $('withdrawModal').classList.add('show');
+}
+
+$('withdrawForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const amt = Number($('withdrawAmount').value);
+  const method = $('withdrawMethod').value;
+  const acc = $('withdrawAccount').value.trim();
+
+  if(amt < 200){ alert('সর্বনিম্ন উইথড্র ২০০ ৳'); return; }
+  if(amt > currentUser.balance){ alert('পর্যাপ্ত ব্যালেন্স নেই!'); return; }
+
+  currentUser.balance -= amt;
+  historyData.unshift({
+    title: `উইথড্র (${method} - ${acc})`,
+    amount: '-' + amt,
+    type: 'loss',
+    time: new Date().toLocaleTimeString('bn-BD')
+  });
+  saveState();
+  updateUserUI();
+  $('withdrawAmount').value = '';
+  closeModal('withdrawModal');
+  alert(`আপনার ${amt} ৳ উইথড্র অনুরোধ সফলভাবে গৃহীত হয়েছে।`);
+});
 
 function openProfile(){
   if(!currentUser){ openAuth('login'); return; }
@@ -762,15 +925,6 @@ function openHistory(){
     `).join('');
   }
   $('historyModal').classList.add('show');
-}
-
-function resetDemoBalance(){
-  if(!currentUser){ openAuth('login'); return; }
-  currentUser.balance += 1000;
-  historyData.unshift({title: 'ডেমো রিফিল', amount: '+1000', type: 'win', time: new Date().toLocaleTimeString('bn-BD')});
-  saveState();
-  updateUserUI();
-  alert('আপনার ওয়ালেটে ১,০০০ ডেমো ক্রেডিট যোগ হয়েছে!');
 }
 
 // Aviator Game Logic
@@ -819,7 +973,7 @@ function handleAviatorAction() {
       return;
     }
     if (currentUser.balance < bet) {
-      $('aviatorStatus').textContent = 'পর্যাপ্ত ব্যালেন্স নেই! ওয়ালেট রিফিল করুন।';
+      $('aviatorStatus').textContent = 'পর্যাপ্ত ব্যালেন্স নেই! ডিপোজিট করুন।';
       return;
     }
 
@@ -934,4 +1088,4 @@ async function shareSite(){
 updateUserUI();
 </script>
 </body>
-    </html>
+      </html>
