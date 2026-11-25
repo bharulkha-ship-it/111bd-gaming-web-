@@ -1,11 +1,16 @@
+
 {
-  "name": "black-gold-demo-platform",
+  "name": "111bd-bangla-gaming-web",
   "version": "1.0.0",
   "private": true,
-  "description": "Demo-only virtual-credit casino-style website starter",
+  "description": "111BD Bangla Gaming Web Demo",
   "main": "server.js",
-  "scripts": {"start": "node server.js"},
-  "engines": {"node": ">=18"},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "better-sqlite3": "^11.8.1",
