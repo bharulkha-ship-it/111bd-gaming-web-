@@ -184,3 +184,12 @@ app.post("/api/admin/credits", auth, admin, (req, res) => {
 
 app.use(express.static(path.join(__dirname, "public")));
 app.listen(PORT, () => console.log(`Black Gold Demo running at http://localhost:${PORT}`));
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`111BD running on port ${PORT}`);
+});
