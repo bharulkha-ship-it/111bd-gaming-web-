@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডিপোজিট - BdWin123</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">BdWin123</div>
+        <a href="home.html" class="nav-back">হোম</a>
+    </header>
+
+    <div class="container">
+        <h2>ডিপোজিট (Deposit)</h2>
+        <form onsubmit="handleSubmit(event, 'ডিপোজিট রিকোয়েস্ট সফলভাবে পাঠানো হয়েছে!')" class="form-box">
+            <label>পেমেন্ট মাধ্যম নির্বাচন করুন:</label>
+            <select name="method" required>
+                <option value="bkash">বিকাশ (bKash)</option>
+                <option value="nagad">নগদ (Nagad)</option>
+                <option value="rocket">রকেট (Rocket)</option>
+            </select>
+
+            <label>টাকার পরিমাণ (BDT):</label>
+            <input type="number" name="amount" placeholder="যেমন: ৫০০" min="100" required>
+
+            <label>যে নম্বর থেকে টাকা পাঠিয়েছেন:</label>
+            <input type="text" name="sender_number" placeholder="০১৭xxxxxxxx" required>
+
+            <label>ট্রানজেকশন আইডি (TrxID):</label>
+            <input type="text" name="trx_id" placeholder="ট্রানজেকশন আইডি দিন" required>
+
+            <button type="submit" class="btn btn-primary">ডিপোজিট নিশ্চিত করুন</button>
+        </form>
+        <div class="back-link">
+            <a href="home.html">← হোম পেজে ফিরে যান</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

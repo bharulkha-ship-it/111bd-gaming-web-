@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>উইথড্র - BdWin123</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">BdWin123</div>
+        <a href="home.html" class="nav-back">হোম</a>
+    </header>
+
+    <div class="container">
+        <h2>উইথড্র (Withdraw)</h2>
+        <form onsubmit="handleSubmit(event, 'উইথড্র রিকোয়েস্ট সফলভাবে গ্রহণ করা হয়েছে!')" class="form-box">
+            <label>উইথড্র মাধ্যম:</label>
+            <select name="method" required>
+                <option value="bkash">বিকাশ (bKash)</option>
+                <option value="nagad">নগদ (Nagad)</option>
+                <option value="rocket">রকেট (Rocket)</option>
+            </select>
+
+            <label>টাকার পরিমাণ (BDT):</label>
+            <input type="number" name="amount" placeholder="ন্যূনতম ৩০০ টাকা" min="300" required>
+
+            <label>আপনার পার্সোনাল অ্যাকাউন্ট নম্বর:</label>
+            <input type="text" name="account_number" placeholder="০১৮xxxxxxxx" required>
+
+            <button type="submit" class="btn btn-primary">উইথড্র রিকোয়েস্ট পাঠান</button>
+        </form>
+        <div class="back-link">
+            <a href="home.html">← হোম পেজে ফিরে যান</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
